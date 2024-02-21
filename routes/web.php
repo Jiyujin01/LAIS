@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\App\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\App\Admin\UserController as AdminUser;
+/*
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,5 +20,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/app/admin', [AdminDashboard::class, 'index'])->name('app.admin.index');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/app/admin/users', [AdminUser::class, 'index'])->name('app.admin.users.index');
