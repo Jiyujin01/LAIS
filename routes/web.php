@@ -24,6 +24,5 @@ Route::get('/app/admin', [AdminDashboard::class, 'index'])->name('app.admin.inde
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/app/admin/users', [AdminUser::class, 'index'])->name('app.admin.users.index');
