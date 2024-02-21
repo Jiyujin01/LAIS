@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
   <title>Web-Based ID Entry System</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,10 +13,12 @@
   body {
     font: 20px Montserrat, sans-serif;
     line-height: 1.8;
-    color: #f5f6f7;
+    color: #ffffff; /* Updated text color to white */
+    background-color: #2f2f2f;
   }
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
+  
   .bg-1 { 
     background-color: #1abc9c; /* Green */
     color: #ffffff;
@@ -27,8 +28,8 @@
     color: #ffffff;
   }
   .bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
+    background-color: #2f2f2f;
+    color: #ffffff; /* Updated text color to white */
   }
   .bg-4 { 
     background-color: #2f2f2f; /* Black Gray */
@@ -46,10 +47,23 @@
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+    background-color: rgba(5, 5, 5, 0.8);
+    color: #ffffff ;
   }
   .navbar-nav  li a:hover {
     color: #1abc9c !important;
   }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(5, 5, 5, 0.8); /* Black Gray */
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+  }
+
   </style>
 </head>
 <body>
@@ -81,9 +95,9 @@
 </div>
 
 <!-- Footer -->
-<footer class="container-fluid bg-4 text-center">
-  <p>  <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
-</footer>
+<div class="footer">
+  <p> Copyright &copy; 2024.<a href="https://www.w3schools.com">Researcher.Sanagustin</a></p> 
+</div>
 
 </body>
 </html>

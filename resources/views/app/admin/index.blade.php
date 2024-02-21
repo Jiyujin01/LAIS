@@ -11,7 +11,7 @@
 @stop
 
 @section('footer')
-    Copyright &copy; 2024. <strong>CBRJ Admin</strong>. All rights reserved.
+    Copyright &copy; 2024. <strong>IDES Admin</strong>. All rights reserved.
 @stop
 
 @section('css')
