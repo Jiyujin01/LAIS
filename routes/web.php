@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\App\Admin\UserController as AdminUser;
+use App\Http\Controllers\App\Admin\DashboardController as AdminDashboard;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
