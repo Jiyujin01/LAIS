@@ -1,7 +1,7 @@
 @extends('layouts.template');
 
 @section('pageTitle')
-    Home
+    About us
 @endsection
 
 @section('pageContent')

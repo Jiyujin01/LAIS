@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Entry System </b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -290,99 +290,60 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
+        ['header' => 'Student Dashboard'],
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'text'        => 'Attendance History',
+            'url'         => 'app/admin',
+            'icon'        => 'nav-icon fas fa-tachometer-alt',
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+      
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'        => 'Upcoming Classes',
+            'url'         => '/adminlte/dashboard',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+        ['header' => 'Teacher Dashboard'],
+        [
+            'text'        => 'Manage Classes',
+            'url'         => 'app/admin/users ',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+  
+
+        ['header' => 'Admin Dashboard'],
+        [
+            'text'        => ' Manage Users',
+            'url'         => 'app/admin/users  ',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'        => ' Manage People',
+            'url'         => '',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text'        => ' Manage Students',
+            'url'         => '',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
         ],
-        ['header' => 'labels'],
+
+
+        ['header' => 'User Tools'],
+       
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'Change Password',
+            'url'  => 'admin/auth',
+            'icon' => 'fas fa-fw fa-cog',
+            'active' => ['admin/auth'],
         ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+
+     
     ],
 
     /*
