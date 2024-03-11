@@ -290,18 +290,60 @@ return [
     */
 
     'menu' => [
+        ['header' => 'Student Dashboard'],
         [
-            'text'        => 'Dashboard',
+            'text'        => 'Attendance History',
             'url'         => 'app/admin',
             'icon'        => 'nav-icon fas fa-tachometer-alt',
             'label_color' => 'success',
         ],
+      
         [
-            'text'        => 'User Management',
-            'url'         => 'app/admin/users',
+            'text'        => 'Upcoming Classes',
+            'url'         => '/adminlte/dashboard',
             'icon'        => 'nav-icon fas fa-users',
             'label_color' => 'success',
         ],
+        ['header' => 'Teacher Dashboard'],
+        [
+            'text'        => 'Manage Classes',
+            'url'         => 'app/admin/users ',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+  
+
+        ['header' => 'Admin Dashboard'],
+        [
+            'text'        => ' Manage Users',
+            'url'         => 'app/admin/users  ',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => ' Manage People',
+            'url'         => '',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => ' Manage Students',
+            'url'         => '',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+
+
+        ['header' => 'User Tools'],
+       
+        [
+            'text' => 'Change Password',
+            'url'  => 'admin/auth',
+            'icon' => 'fas fa-fw fa-cog',
+            'active' => ['admin/auth'],
+        ],
+
+     
     ],
 
     /*
