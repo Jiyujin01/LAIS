@@ -44,11 +44,13 @@ class ClassManagementController extends Controller
         return redirect()->route('app.admin.classes.index')->with('status', 'Class has been successfully deleted!');
     }
 
+
     public function modify(UpcomingClass $upcomingClass)
     {
         return view('app.admin.classes.modify', compact('upcomingClass'));
     }
 
+    
     public function update(Request $request, UpcomingClass $upcomingClass)
     {
         $data = $request->validate([

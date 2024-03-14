@@ -28,9 +28,9 @@
                 <thead>
                     <tr>            
                     <th width="10%">ID</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Role</th>
+                        <th>Class_ID</th>
+                        <th>Name</th>
+                        <th>Subject</th>
                         <th>Email Address</th>
                         <th width="20%">Action</th>
                     </tr>

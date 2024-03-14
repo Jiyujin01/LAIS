@@ -37,6 +37,6 @@ Route::get('/app/admin', [AdminDashboard::class, 'index'])->name('app.admin.inde
 Route::get('/adminlte/dashboard', [UpcomingClassController::class, 'index'])->name('app.admin.classes.index');
 Route::get('/app/admin/classes/create', [UpcomingClassController::class, 'create'])->name('app.admin.classes.create');
 Route::post('/app/admin/classes/create', [UpcomingClassController::class, 'store'])->name('app.admin.classes.store');
-Route::delete('/app/admin/classes/{classes}', [UpcomingClassController::class, 'destroy'])->name('app.admin.classes.destroy');
-Route::get('/app/admin/classes/{classes}', [UpcomingClassController::class, 'modify'])->name('app.admin.classes.modify');
-Route::put('/app/admin/classes/{classes}', [UpcomingClassController::class, 'update'])->name('app.admin.classes.update');
+Route::delete('/app/admin/classes/{upcomingClass}', [UpcomingClassController::class, 'destroy'])->name('app.admin.classes.destroy');
+Route::get('/app/admin/classes/{upcomingClass}', [UpcomingClassController::class, 'modify'])->name('app.admin.classes.modify');
+Route::put('/app/admin/classes/{upcomingClass}', [UpcomingClassController::class, 'update'])->name('app.admin.classes.update');

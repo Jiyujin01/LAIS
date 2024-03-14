@@ -300,9 +300,9 @@ return [
         ],
       
         [
-            'text'        => 'Upcoming Classes',
+            'text'        => 'Upcoming Events',
             'url'         => '/adminlte/dashboard',
-            'icon'        => 'nav-icon fas fa-users',
+            'icon'        => 'nav-icon far fa-calendar',
             'label_color' => 'success',
         ],
         ['header' => 'Teacher Dashboard'],

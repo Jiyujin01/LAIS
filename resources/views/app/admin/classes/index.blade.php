@@ -39,7 +39,7 @@
             <td>{{ $class->date }}</td>                     
             <td>
                 <form method="post" action="{{ route('app.admin.classes.destroy', $class->id) }}"> 
-                    <a href="{{ route('app.admin.classes.modifyubnmy', $class->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
+                    <a href="{{ route('app.admin.classes.modify', $class->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
                     @csrf 
                     @method('delete')
                     <button type="submit" onclick="return confirm('This will delete the entry!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
