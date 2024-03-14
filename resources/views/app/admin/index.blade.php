@@ -11,7 +11,9 @@
 @stop
 
 @section('footer')
-    Copyright &copy; 2024. <strong>IDES Admin</strong>. All rights reserved.
+
+Copyright &copy; 2024. <strong>Web-Based_ID_Entry</strong>. All rights reserved.
+
 @stop
 
 @section('css')
@@ -20,4 +22,6 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+
 @stop
+
