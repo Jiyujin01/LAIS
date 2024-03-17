@@ -1,11 +1,9 @@
-
-                   
 @extends('adminlte::page')
 
-@section('title', 'Users')
+@section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Users</h1>
+    <h1>Dashboard</h1>
 @stop
 
 @section('content')
@@ -19,54 +17,48 @@
         <div class="card-header">
             <h3 class="card-title">List</h3>
             <div class="card-tools">
-                <a href="" class="btn btn-primary btn-sm">New Users</a>
+                <a href="{{ route('app.admin.students.create') }}" class="btn btn-primary btn-sm">New Student</a>
             </div>
         </div>
 
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                    <tr>            
-                    <th width="10%">ID</th>
-                        <th>Class_ID</th>
-                        <th>Name</th>
-                        <th>Subject</th>
-                        <th>Email Address</th>
-                        <th width="20%">Action</th>
+                    <tr>  
+                        <th>ID</th>
+                        <th>Class</th> <!-- New column for Class -->
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $users)
-                       
+                    @foreach($student as $students)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>                        
+                        <td>{{ $students->id }}</td>
+                        <td>{{ $students->class }}</td> <!-- Displaying Class -->
+                        <td>{{ $students->fname }}</td>
+                        <td>{{ $students->lname }}</td>                     
+                        <td>{{ $students->gender }}</td>
                         <td>
-                            <form method="post" action=""> 
-                                <a href="" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
-                           
+                            <form method="post" action="{{ route('app.admin.students.destroy', $students->id) }}"> 
+                                <a href="{{ route('app.admin.students.edit', $students->id) }}" class="btn btn-warning btn-sm">Edit <span class="fas fa-edit"></span></a>
                                 @csrf 
                                 @method('delete')
-                            <button type="submit" onclick="return confirm('This will delete the entry!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></a>
+                                <button type="submit" onclick="return confirm('This will delete the student!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
                             </form>
                         </td>
                     </tr>
-                
                     @endforeach
                 </tbody>
-                <tfoot>
-                   
-                </tfoot>
             </table>
         </div>
     </div>
 @stop
 
 @section('footer')
-    Copyright &copy; 2024. <strong>Web-Based_ID_Entry</strong>. All rights reserved.
+    Copyright &copy; 2024. <strong>Learners Attendance Information System</strong>. All rights reserved.
 @stop
 
 @section('css')

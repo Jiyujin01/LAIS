@@ -25,12 +25,12 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/app/students';
 
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @return voids
      */
     public function __construct()
     {
