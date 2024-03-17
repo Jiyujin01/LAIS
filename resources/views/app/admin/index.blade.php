@@ -75,5 +75,8 @@ Copyright &copy; 2024. <strong>Learners Attendance Information System</strong>. 
 @section('js')
     <script> console.log('Hi!'); </script>
 
+
 @stop
+
+
 

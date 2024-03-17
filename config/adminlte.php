@@ -299,6 +299,7 @@ return [
             'label_color' => 'success',
         ],
       
+      
         [
             'text'        => 'Upcoming Events',
             'url'         => '/adminlte/dashboard',
