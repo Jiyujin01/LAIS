@@ -3,7 +3,7 @@
 @section('title', 'Users -> Add new user')
 
 @section('content_header')
-    <h1>Blogs -> Add New User</h1>
+    <h1>Users -> Add New User</h1>
 @stop
 
 @section('content')
@@ -30,18 +30,7 @@
                         </span>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <label for="level">User Level</label>
-                    <select name="level" class="form-control @error('level') is-invalid @enderror" id="level" value="{{old('level')}}">
-                        <option value="">--- please select ----</option>
-                        <option value="0" {{old('level') == 0 ? "selected" : ""}}>Staff</option>
-                        <option value="1" {{old('level') == 1 ? "selected" : ""}}>Administrator</option>
-                    </select>
-                    @error('level')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+    
                     <div class="form-group">
                     <label for="level">User Level</label>
                     <select name="level" class="form-control @error('level') is-invalid @enderror" id="level" value="{{old('level')}}">
@@ -54,7 +43,6 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Default Password</label>

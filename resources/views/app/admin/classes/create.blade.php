@@ -1,25 +1,37 @@
 @extends('adminlte::page')
 
-@section('title', 'Positions | Create')
+@section('title', 'Class | Create')
 
 @section('content_header')
-    <h1>Classes: New</h1>
+    <h1>Class: New</h1>
 @stop
 
 @section('content')
 
 <div class="card">
         <div class="card-body">
-            <form action="{{ route('app.admin.classes.store') }}" method="POST">
+            <form action="{{ route('app.statums.classes.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name" class="form-control" required>
                 </div>
+
                 <div class="form-group">
                     <label for="date">Date:</label>
                     <input type="date" name="date" id="date" class="form-control" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="level">Level:</label>
+                    <input type="int" name="level" id="level" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="School_year">School year:</label>
+                    <input type="int" name="School_year" id="School_year" class="form-control" required>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Create</button>
             </form>
         </div>

@@ -15,15 +15,12 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('classs_id');
+            $table->unsignedBigInteger('stratum_id');
             $table->string('fname');
             $table->string('lname');
             $table->string('suffix')->nullable();
             $table->string('gender');
             $table->timestamps();
-
-            // Define foreign key constraint
-            $table->foreign('classs_id')->references('id')->on('classses');
         });
     }
 

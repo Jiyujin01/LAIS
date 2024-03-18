@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Upcoming Events')
+@section('title', 'Classes')
 
 @section('content_header')
-    <h1>Upcoming Events</h1>
+    <h1>Classes</h1>
 @stop
 
 @section('content')
@@ -17,7 +17,7 @@
         <div class="card-header">
             <h3 class="card-title">List</h3>
             <div class="card-tools">
-                <a href="{{ route('app.admin.classes.create') }}" class="btn btn-primary btn-sm">New Class</a>
+                <a href="{{ route('app.admin.statums.create') }}" class="btn btn-primary btn-sm">New Class</a>
             </div>
         </div>
 
@@ -32,13 +32,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($upcomingClasses as $class)
+        @foreach($statum as $statums)
         <tr>
-            <td>{{ $class->id }}</td>
-            <td>{{ $class->name }}</td>
-            <td>{{ $class->date }}</td>                     
+            <td>{{ $statum->id }}</td>
+            <td>{{ $statum->name }}</td>
+            <td>{{ $statum->date }}</td>                     
             <td>
-                <form method="post" action="{{ route('app.admin.classes.destroy', $class->id) }}"> 
+                <form method="post" action="{{ route('app.admin.statums.destroy', $statum->id) }}"> 
                     <a href="{{ route('app.admin.classes.modify', $class->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
                     @csrf 
                     @method('delete')

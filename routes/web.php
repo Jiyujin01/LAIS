@@ -39,15 +39,15 @@ Route::get('/app/admin/users/{user}/reset', [AdminUser::class, 'reset'])->name('
 Route::patch('/app/admin/users/{user}', [AdminUser::class, 'resetOk'])->name('app.admin.users.resetOk');
 
 
-Route::get('/app/admin/classes/create', [UpcomingClassController::class, 'create'])->name('app.admin.classes.create');
-Route::post('/app/admin/classes/create', [UpcomingClassController::class, 'store'])->name('app.admin.classes.store');
-Route::delete('/app/admin/classes/{upcomingClass}', [UpcomingClassController::class, 'destroy'])->name('app.admin.classes.destroy');
-Route::get('/app/admin/classes/{upcomingClass}', [UpcomingClassController::class, 'modify'])->name('app.admin.classes.modify');
-Route::put('/app/admin/classes/{upcomingClass}', [UpcomingClassController::class, 'update'])->name('app.admin.classes.update');
+Route::get('/app/admin/events', [EventController::class, 'index'])->name('app.admin.events.index');
+Route::get('/app/admin/events/create', [EventController::class, 'create'])->name('app.admin.events.create');
+Route::post('/app/admin/events/create', [EventController::class, 'store'])->name('app.admin.events.store');
+Route::delete('/app/admin/events/{event}', [EventController::class, 'destroy'])->name('app.admin.events.destroy');
+Route::get('/app/admin/events/{event}', [EventController::class, 'modify'])->name('app.admin.events.modify');
+Route::put('/app/admin/events/{event}', [EventController::class, 'update'])->name('app.admin.events.update');
 
-Route::get('/adminlte/dashboard', [UpcomingClassController::class, 'index'])->name('app.admin.classes.index');
 
-Route::get('/app/students', [StudentController::class, 'index'])->name('app.admin.students.index');
+Route::get('/app/admin/students', [StudentController::class, 'index'])->name('app.admin.students.index');
 
 
 Route::get('/app/admin/students/create', [StudentController::class, 'create'])->name('app.admin.students.create');

@@ -17,7 +17,7 @@
                         <h3>System Confirmation</h3>
                     </div>
                     <div class="card-body">
-                        <p>You are about to delete <strong>{{$upcomingClass->name}}</strong>. Are you sure with your action?</p>
+                        <p>You are about to delete <strong>{{$event->name}}</strong>. Are you sure with your action?</p>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Yes</button>

@@ -47,7 +47,7 @@ class EventController extends Controller
 
     public function modify(Event $event)
     {
-        return view('app.admin.events.modify', compact('Event'));
+        return view('app.admin.events.modify', compact('event'));
     }
 
     

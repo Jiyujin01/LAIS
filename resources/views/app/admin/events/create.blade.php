@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Positions | Create')
+@section('title', 'Event | Create')
 
 @section('content_header')
-    <h1>Classes: New</h1>
+    <h1>Event: New</h1>
 @stop
 
 @section('content')
 
 <div class="card">
         <div class="card-body">
-            <form action="{{ route('app.admin.classes.store') }}" method="POST">
+            <form action="{{ route('app.admin.events.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name:</label>

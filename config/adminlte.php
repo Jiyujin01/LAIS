@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'LAMS',
+    'title' => 'LAIS',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -64,7 +64,7 @@ return [
     */
 
 
-    'logo' => '<b>LAMS </b>',
+    'logo' => '<b>LAIS </b>',
     'logo_img' => 'img/icon.ico',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -294,7 +294,7 @@ return [
         /*['header' => 'Student Dashboard'],*/
         [
             'text'        => 'Dashboard',
-            'url'         => 'app/students',
+            'url'         => 'app/admin/dashbord',
             'icon'        => 'nav-icon fas fa-tachometer-alt',
             'label_color' => 'success',
         ],
@@ -302,7 +302,7 @@ return [
       
         [
             'text'        => 'Upcoming Events',
-            'url'         => '/adminlte/dashboard',
+            'url'         => '/app/admin/events',
             'icon'        => 'nav-icon far fa-calendar',
             'label_color' => 'success',
         ],

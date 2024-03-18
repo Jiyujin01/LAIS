@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('classs', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('user_id');
-            $table->Integer('level');
-            $table->Integer('School_year');
+            $table->dateTime('date');
             $table->timestamps();
-        // Define foreign key constraint
-        $table->foreign('user_id')->references('id')->on('users');
-    });
-}
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classs');
+        Schema::dropIfExists('events');
     }
 };
