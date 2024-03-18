@@ -6,7 +6,6 @@
 
 @section('pageContent')
     This is the content
-    jvrkejgoierjgerjg
-    gregrejghrieugheurigh
+ 
     <a>lorem epsum</a>
 @endsection

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Entry System',
+    'title' => 'LAMS',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -63,8 +63,9 @@ return [
     |
     */
 
-    'logo' => '<b>Entry </b>System',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+
+    'logo' => '<b>LAMS </b>',
+    'logo_img' => 'img/icon.ico',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -84,9 +85,9 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => false,
+        'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'img/icon.ico',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -107,7 +108,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'AdminLTE Preloader Image',
@@ -130,7 +131,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -150,10 +151,10 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
-    'layout_fixed_footer' => null,
-    'layout_dark_mode' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
+    'layout_fixed_footer' => true,
+    'layout_dark_mode' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -194,7 +195,7 @@ return [
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-black navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -290,18 +291,61 @@ return [
     */
 
     'menu' => [
+        /*['header' => 'Student Dashboard'],*/
         [
             'text'        => 'Dashboard',
-            'url'         => 'app/admin',
+            'url'         => 'app/students',
             'icon'        => 'nav-icon fas fa-tachometer-alt',
             'label_color' => 'success',
         ],
+      
+      
         [
-            'text'        => 'User Management',
-            'url'         => 'app/admin/users',
+            'text'        => 'Upcoming Events',
+            'url'         => '/adminlte/dashboard',
+            'icon'        => 'nav-icon far fa-calendar',
+            'label_color' => 'success',
+        ],
+        ['header' => 'Teacher Dashboard'],
+        [
+            'text'        => 'Manage Classes',
+            'url'         => 'app/admin/Classes ',
             'icon'        => 'nav-icon fas fa-users',
             'label_color' => 'success',
         ],
+  
+
+        ['header' => 'Admin Dashboard'],
+        [
+            'text' => 'Users',
+            'url'  => 'app/admin/users',
+            'icon' => 'fas fa-fw fa-users',
+            'active' => ['app/admin/users', 'app/admin/users/create', 'regex:@^app/admin/users/[0-9]+$@', 'regex:@^app/admin/users/\d+/delete+$@'],
+        ],
+        [
+            'text'        => ' Manage People',
+            'url'         => '',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => ' Manage Students',
+            'url'         => '',
+            'icon'        => 'nav-icon fas fa-users',
+            'label_color' => 'success',
+        ],
+
+    
+        ['header' => 'User Tools'],
+       
+        [
+            'text' => 'Change Password',
+            'url'  => 'admin/auth',
+            'icon' => 'fas fa-fw fa-cog',
+            'active' => ['admin/auth'],
+        ],
+
+     
     ],
 
     /*
