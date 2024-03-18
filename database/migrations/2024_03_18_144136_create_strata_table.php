@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stratums', function (Blueprint $table) {
-                $table->id();
-                $table->string('name');
-                $table->unsignedBigInteger('user_id');
-                $table->Integer('level');
-                $table->Integer('School_year');
-                $table->timestamps();
+        Schema::create('strata', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('user_id');
+            $table->Integer('level');
+            $table->Integer('School_year');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stratums');
+        Schema::dropIfExists('strata');
     }
 };

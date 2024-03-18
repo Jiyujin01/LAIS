@@ -10,7 +10,7 @@
 
 <div class="card">
         <div class="card-body">
-            <form action="{{ route('app.statums.classes.store') }}" method="POST">
+            <form action="{{ route('app.admin.classes.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name:</label>
@@ -18,8 +18,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="date">Date:</label>
-                    <input type="date" name="date" id="date" class="form-control" required>
+                    <label for="user_id">Teacher Adviser:</label>
+                    <input type="int" name="user_id" id="user_id" class="form-control" required>
                 </div>
 
                 <div class="form-group">
@@ -32,7 +32,10 @@
                     <input type="int" name="School_year" id="School_year" class="form-control" required>
                 </div>
 
+                <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Create</button>
+                <a href="{{route('app.admin.classes.index')}}" type="button" class="btn btn-default float-right">Cancel</a>
+            </div>
             </form>
         </div>
     </div>

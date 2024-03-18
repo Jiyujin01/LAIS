@@ -7,6 +7,7 @@ use App\Http\Controllers\App\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\App\Admin\StudentsController as StudentController;
 use App\Http\Controllers\HomepageController as HomepageController;
 use App\Http\Controllers\App\Admin\EventController as EventController;
+use App\Http\Controllers\App\Admin\StratumController as StratumController;
 
 
 /*
@@ -46,6 +47,13 @@ Route::delete('/app/admin/events/{event}', [EventController::class, 'destroy'])-
 Route::get('/app/admin/events/{event}', [EventController::class, 'modify'])->name('app.admin.events.modify');
 Route::put('/app/admin/events/{event}', [EventController::class, 'update'])->name('app.admin.events.update');
 
+
+Route::get('/app/admin/classes', [StratumController::class, 'index'])->name('app.admin.classes.index');
+Route::get('/app/admin/classes/create', [StratumController::class, 'create'])->name('app.admin.classes.create');
+Route::post('/app/admin/classes/create', [StratumController::class, 'store'])->name('app.admin.classes.store');
+Route::delete('/app/admin/classes/{stratum}', [StratumController::class, 'destroy'])->name('app.admin.classes.destroy');
+Route::get('/app/admin/classes/{stratum}', [StratumController::class, 'modify'])->name('app.admin.classes.modify');
+Route::put('/app/admin/classes/{stratum}', [StratumController::class, 'update'])->name('app.admin.classes.update');
 
 Route::get('/app/admin/students', [StudentController::class, 'index'])->name('app.admin.students.index');
 

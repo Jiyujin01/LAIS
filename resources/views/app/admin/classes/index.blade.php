@@ -17,7 +17,7 @@
         <div class="card-header">
             <h3 class="card-title">List</h3>
             <div class="card-tools">
-                <a href="{{ route('app.admin.statums.create') }}" class="btn btn-primary btn-sm">New Class</a>
+                <a href="{{ route('app.admin.classes.create') }}" class="btn btn-primary btn-sm">New Class</a>
             </div>
         </div>
 
@@ -27,19 +27,23 @@
         <tr>            
             <th width="10%">ID</th>
             <th>Name</th>
-            <th>Date</th>
+            <th>Teacher Adviser</th>
+            <th>Grade Level</th>
+            <th>School Year</th>
             <th width="20%">Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($statum as $statums)
+        @foreach($stratum as $stratums)
         <tr>
-            <td>{{ $statum->id }}</td>
-            <td>{{ $statum->name }}</td>
-            <td>{{ $statum->date }}</td>                     
+            <td>{{ $stratum->id }}</td>
+            <td>{{ $stratum->name }}</td>
+            <td>{{ $stratum->user_id }}</td> 
+            <td>{{ $stratum->level }}</td>    
+            <td>{{ $stratum->School_year }}</td>                
             <td>
-                <form method="post" action="{{ route('app.admin.statums.destroy', $statum->id) }}"> 
-                    <a href="{{ route('app.admin.classes.modify', $class->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
+                <form method="post" action="{{ route('app.admin.classes.destroy', $stratum->id) }}"> 
+                    <a href="{{ route('app.admin.classes.modify', $stratum->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
                     @csrf 
                     @method('delete')
                     <button type="submit" onclick="return confirm('This will delete the entry!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
