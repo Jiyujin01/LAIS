@@ -39,6 +39,7 @@ Route::delete('/app/admin/users/{user}', [AdminUser::class, 'destroy'])->name('a
 Route::get('/app/admin/users/{user}/reset', [AdminUser::class, 'reset'])->name('app.admin.users.reset');
 Route::patch('/app/admin/users/{user}', [AdminUser::class, 'resetOk'])->name('app.admin.users.resetOk');
 
+Route::get('/app/admin/dashbord', [EventController::class, 'index'])->name('app.admin.dashbord.index');
 
 Route::get('/app/admin/events', [EventController::class, 'index'])->name('app.admin.events.index');
 Route::get('/app/admin/events/create', [EventController::class, 'create'])->name('app.admin.events.create');

@@ -317,7 +317,7 @@ return [
 
         ['header' => 'Admin Dashboard'],
         [
-            'text' => 'Users',
+            'text' => 'Manage Users',
             'url'  => 'app/admin/users',
             'icon' => 'fas fa-fw fa-users',
             'active' => ['app/admin/users', 'app/admin/users/create', 'regex:@^app/admin/users/[0-9]+$@', 'regex:@^app/admin/users/\d+/delete+$@'],

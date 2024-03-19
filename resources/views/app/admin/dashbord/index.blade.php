@@ -15,29 +15,38 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">List</h3>
+            <h3 class="card-title">Student LogIn List</h3>
             <div class="card-tools">
-                <a href="{{ route('app.admin.classes.create') }}" class="btn btn-primary btn-sm">New Class</a>
+  
             </div>
         </div>
-<!---
+
         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                         <thead>
-                            <tr>  
-                            <th width="20%">Image</th>          
+                            <tr>          
                                 <th width="10%">ID</th>
                                 <th>Name</th>
                                 <th>Teacher</th>
+                                <th>CLass</th>
+                                <th>Level</th>
+                                <th>Status</th>
                                 <th width="20%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($upcomingClasses as $class)
+                            @foreach($student as $students)
                             <tr>
-                                <td>{{ $class->id }}</td>
-                                <td>{{ $class->name }}</td>
-                                <td>{{ $class->date }}</td>                     
+                                <td>{{ $students->id }}</td>
+                                <td>{{ $students->name }}</td>
+                                <td>{{ $students->user->getUsername()}}</td> 
+                                <td>
+                                @php
+                                $students = App\Models\Student::where('id', '=', $user->employee->id)->first();
+                                @endphp
+                                {{$person->first_name}}
+                                </td>
+                                <td>{{ $students->date }}</td>                 
                                 <td>
                                     <form method="post" action="{{ route('app.admin.classes.destroy', $class->id) }}"> 
                                         <a href="{{ route('app.admin.classes.modify', $class->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
@@ -57,8 +66,8 @@
                 </tfoot>
             </table>
         </div>
--->
     </div>
+
 @stop
 
 
