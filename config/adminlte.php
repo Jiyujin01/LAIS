@@ -294,7 +294,7 @@ return [
         /*['header' => 'Student Dashboard'],*/
         [
             'text'        => 'Dashboard',
-            'url'         => 'app/admin/dashbord',
+            'url'         => 'app/admin',
             'icon'        => 'nav-icon fas fa-tachometer-alt',
             'label_color' => 'success',
         ],

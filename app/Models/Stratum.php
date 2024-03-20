@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\User;
+use App\Models\Student;
 
 
 class Stratum extends Model
@@ -21,5 +24,15 @@ class Stratum extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function student(): HasOne
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function getClassname()
+    {
+        return $this->name;
     }
 }

@@ -27,7 +27,7 @@ Route::get('/about-us',[HomepageController::class, 'aboutus'])->name('homepage.a
 Route::get('/contact-us',[HomepageController::class, 'contactus'])->name('homepage.contactus');
 
 Auth::routes();
-
+Route::get('/app/admin', [AdminDashboard::class, 'index'])->name('app.admin.dashbord.index');
 
 Route::get('/app/admin/users', [AdminUser::class, 'index'])->name('app.admin.users.index');
 Route::get('/app/admin/users/create', [AdminUser::class, 'create'])->name('app.admin.users.create');
@@ -38,8 +38,6 @@ Route::get('/app/admin/users/{user}/delete', [AdminUser::class, 'delete'])->name
 Route::delete('/app/admin/users/{user}', [AdminUser::class, 'destroy'])->name('app.admin.users.destroy');
 Route::get('/app/admin/users/{user}/reset', [AdminUser::class, 'reset'])->name('app.admin.users.reset');
 Route::patch('/app/admin/users/{user}', [AdminUser::class, 'resetOk'])->name('app.admin.users.resetOk');
-
-Route::get('/app/admin/dashbord', [EventController::class, 'index'])->name('app.admin.dashbord.index');
 
 Route::get('/app/admin/events', [EventController::class, 'index'])->name('app.admin.events.index');
 Route::get('/app/admin/events/create', [EventController::class, 'create'])->name('app.admin.events.create');

@@ -4,6 +4,7 @@ namespace App\http\Controllers\App\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Stratum;
 
 class DashboardController extends Controller
 {
@@ -23,7 +24,9 @@ class DashboardController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+
     {
-        return view('app.admin.dashbord.index');
+        $stratum = Stratum::all();
+        return view('app.admin.dashbord.index', compact('stratum'));
     }
 }

@@ -17,7 +17,7 @@
         <div class="card-header">
             <h3 class="card-title">Student LogIn List</h3>
             <div class="card-tools">
-  
+            <a href="" class="btn btn-primary btn-sm">Veiw Class</a>
             </div>
         </div>
 
@@ -25,8 +25,8 @@
                             <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>          
-                                <th width="10%">ID</th>
-                                <th>Name</th>
+                                <th width="10%">Student ID</th>
+                                <th width="20%">Name</th>
                                 <th>Teacher</th>
                                 <th>CLass</th>
                                 <th>Level</th>
@@ -35,25 +35,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($student as $students)
+                            @foreach($stratum as $strata)
                             <tr>
-                                <td>{{ $students->id }}</td>
-                                <td>{{ $students->name }}</td>
-                                <td>{{ $students->user->getUsername()}}</td> 
+                                <td>{{ $strata->student->id }}</td>
+                                <td>{{ $strata->student->getFullname()}}</td>
+                                
                                 <td>
-                                @php
-                                $students = App\Models\Student::where('id', '=', $user->employee->id)->first();
-                                @endphp
-                                {{$person->first_name}}
+                                {{ $strata->user->getUname()}}
                                 </td>
-                                <td>{{ $students->date }}</td>                 
+                    
                                 <td>
-                                    <form method="post" action="{{ route('app.admin.classes.destroy', $class->id) }}"> 
-                                        <a href="{{ route('app.admin.classes.modify', $class->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
-                                        @csrf 
-                                        @method('delete')
-                                        <button type="submit" onclick="return confirm('This will delete the entry!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
-                                    </form>
+                                {{ $strata->name }}
+                                </td>
+
+                                <td>
+                                {{ $strata->level }}
+                                </td>
+
+                                <td>
+                                {{ $strata->student->checkinout->Getstate() }}
+                                </td>
+
+                                <td>
+                                    
                                 </td>
                             </tr>
                             @endforeach
