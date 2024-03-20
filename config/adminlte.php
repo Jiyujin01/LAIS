@@ -309,7 +309,7 @@ return [
         ['header' => 'Teacher Dashboard'],
         [
             'text'        => 'Manage Classes',
-            'url'         => 'app/admin/Classes ',
+            'url'         => 'app/admin/classes ',
             'icon'        => 'nav-icon fas fa-users',
             'label_color' => 'success',
         ],
@@ -321,12 +321,6 @@ return [
             'url'  => 'app/admin/users',
             'icon' => 'fas fa-fw fa-users',
             'active' => ['app/admin/users', 'app/admin/users/create', 'regex:@^app/admin/users/[0-9]+$@', 'regex:@^app/admin/users/\d+/delete+$@'],
-        ],
-        [
-            'text'        => ' Manage People',
-            'url'         => '',
-            'icon'        => 'nav-icon fas fa-users',
-            'label_color' => 'success',
         ],
         [
             'text'        => ' Manage Students',

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    @if (session('status'))
+@if (session('status'))
         <div class="alert alert-success alert-dismissible auto-close">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             {{ session('status') }}
@@ -22,44 +22,43 @@
         </div>
 
         <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-    <thead>
-        <tr>            
-            <th width="10%">ID</th>
-            <th>Name</th>
-            <th>Teacher Adviser</th>
-            <th>Grade Level</th>
-            <th>School Year</th>
-            <th width="20%">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($stratum as $stratums)
-        <tr>
-            <td>{{ $stratum->id }}</td>
-            <td>{{ $stratum->name }}</td>
-            <td>{{ $stratum->user_id }}</td> 
-            <td>{{ $stratum->level }}</td>    
-            <td>{{ $stratum->School_year }}</td>                
-            <td>
-                <form method="post" action="{{ route('app.admin.classes.destroy', $stratum->id) }}"> 
-                    <a href="{{ route('app.admin.classes.modify', $stratum->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
-                    @csrf 
-                    @method('delete')
-                    <button type="submit" onclick="return confirm('This will delete the entry!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-    <tfoot>
-       
-    </tfoot>
-</table>
-
-                   
-                </tfoot>
-            </table>
+            <div class="row">
+                @foreach($stratum as $stratums)
+                    <div class="col-md">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="10%">ID</th>
+                                    <th>Name</th>
+                                    <th>Teacher Adviser</th>
+                                    <th>Grade Level</th>
+                                    <th>School Year</th>
+                                    <th width="20%">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ $stratums->id }}</td>
+                                    <td>{{ $stratums->name }}</td>
+                                    <td>{{ $stratums->user_id }}</td> 
+                                    <td>{{ $stratums->level }}</td>    
+                                    <td>{{ $stratums->School_year }}</td>                
+                                    <td>
+                                        <form method="post" action="{{ route('app.admin.classes.destroy', $stratums->id) }}"> 
+                                            <a href="{{ route('app.admin.classes.modify', $stratums->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
+                                            @csrf 
+                                            @method('delete')
+                                            <button type="submit" onclick="return confirm('This will delete the entry!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 @stop
