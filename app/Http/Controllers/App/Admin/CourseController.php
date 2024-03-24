@@ -4,9 +4,10 @@ namespace App\Http\Controllers\App\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Stratum;
+use App\Models\Course;
+use App\Models\Student;
 
-class StratumController extends Controller
+class CourseController extends Controller
 {
     public function __construct()
     {
@@ -15,10 +16,11 @@ class StratumController extends Controller
 
     public function index()
     {
-        $stratum = Stratum::all();
+        $course = Course::all();
 
-        return view('app.admin.classes.index', compact('stratum'));
+        return view('app.admin.classes.index', compact('course'));
     }
+
 
     public function create()
     {
@@ -28,13 +30,13 @@ class StratumController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:4|max:255|unique:stratum',
+            'name' => 'required|min:4|max:255|unique:course',
             'user_id' => 'required|int',
             'level' => 'required',
             'School_year' => 'required'
         ]);
 
-        $stratum = Stratum::create([
+        $course = Course::create([
             'name' => $data['name'],
             'user_id' => $data['user_id'],
             'level' => $data($data['level']),
@@ -44,30 +46,60 @@ class StratumController extends Controller
         return redirect()->route('app.admin.classes.index')->with('status', 'Class has been successfully added!');
     }
 
-    public function destroy(Stratum $stratum)
+    public function destroy(Course $course)
     {
-        $upcomingClass->delete();
+        $courses->delete();
 
         return redirect()->route('app.admin.classes.index')->with('status', 'Class has been successfully deleted!');
     }
 
-    public function modify(Stratum $stratum)
+    public function modify(Course $course)
     {
-        return view('app.admin.classes.modify', compact('stratum'));
+        return view('app.admin.classes.modify', compact('course'));
     }
 
-    public function update(Request $request, Stratum $stratum)
+    public function update(Request $request, Course $course)
     {
         $data = $request->validate([
-            'name' => 'required|min:4|max:255|unique:stratums,name,' . $stratum->id,
+            'name' => 'required|min:4|max:255|unique:courses,name,' . $course->id,
             'date' => 'required|date',
             'user_id' => 'required|int',
             'level' => 'required|int',
             'School_year' => 'required|int'
         ]);
 
-        $stratum->update($data);
+        $course->update($data);
 
         return redirect()->route('app.admin.classes.index')->with('status', 'Class has been successfully updated!');
     }
+
+
+    public function show($id)
+    {
+        $course = Course::find($id);
+    
+        if (!$course) {
+            // Handle case where course is not found
+            $course = Course::findOrFail($id);
+            $students = $course->students;
+            return view('app.admin.classes.show', compact('students'));
+        }
+    
+        $students = $course->students;
+    
+        return view('app.admin.classes.show', compact('students'));
+    }
+
+    public function view(Student $student)
+    {
+        return view('app.admin.classes.view', compact('student'));
+    }
+
+    public function print()
+    {
+
+
+        return view('app.admin.classes.print');
+    }
+    
 }

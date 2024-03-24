@@ -37,17 +37,11 @@
                     @foreach($student as $students)
                     <tr>
                         <td>{{ $students->id }}</td>
-                        <td>{{ $students->class }}</td> <!-- Displaying Class -->
+                        <td>{{ $students->course->name}}</td> 
                         <td>{{ $students->fname }}</td>
                         <td>{{ $students->lname }}</td>                     
                         <td>{{ $students->gender }}</td>
                         <td>
-                            <form method="post" action="{{ route('app.admin.students.destroy', $students->id) }}"> 
-                                <a href="{{ route('app.admin.students.edit', $students->id) }}" class="btn btn-warning btn-sm">Edit <span class="fas fa-edit"></span></a>
-                                @csrf 
-                                @method('delete')
-                                <button type="submit" onclick="return confirm('This will delete the student!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
-                            </form>
                         </td>
                     </tr>
                     @endforeach

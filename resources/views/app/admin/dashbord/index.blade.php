@@ -17,7 +17,7 @@
         <div class="card-header">
             <h3 class="card-title">Student LogIn List</h3>
             <div class="card-tools">
-            <a href="" class="btn btn-primary btn-sm">Veiw Class</a>
+            <a href="{{ route('app.admin.classes.index') }}" class="btn btn-primary btn-sm">Veiw Classes</a>
             </div>
         </div>
 
@@ -35,25 +35,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($stratum as $strata)
+                            @foreach($student as $students)
                             <tr>
-                                <td>{{ $strata->student->id }}</td>
-                                <td>{{ $strata->student->getFullname()}}</td>
+                                <td>{{ $students->id }}</td>
+                                <td>{{ $students->getFullname()}}</td>
                                 
                                 <td>
-                                {{ $strata->user->getUname()}}
+                                {{ $students->course->user->getUname()}}
                                 </td>
                     
                                 <td>
-                                {{ $strata->name }}
+                                {{ $students->course->name }}
                                 </td>
 
                                 <td>
-                                {{ $strata->level }}
+                                {{ $students->course->level }}
                                 </td>
 
                                 <td>
-                                {{ $strata->student->checkinout->Getstate() }}
+                                {{ $students->checkinout->Getstate() }}
                                 </td>
 
                                 <td>

@@ -23,7 +23,7 @@
 
         <div class="card-body">
             <div class="row">
-                @foreach($stratum as $stratums)
+                @foreach($course as $courses)
                     <div class="col-md">
                         <table class="table table-bordered table-striped">
                             <thead>
@@ -38,17 +38,16 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{ $stratums->id }}</td>
-                                    <td>{{ $stratums->name }}</td>
-                                    <td>{{ $stratums->user_id }}</td> 
-                                    <td>{{ $stratums->level }}</td>    
-                                    <td>{{ $stratums->School_year }}</td>                
+                                    <td>{{ $courses->id }}</td>
+                                    <td>{{ $courses->name }}</td>
+                                    <td>{{ $courses->user->getUname() }}</td> 
+                                    <td>{{ $courses->level }}</td>    
+                                    <td>{{ $courses->School_year }}</td>                
                                     <td>
-                                        <form method="post" action="{{ route('app.admin.classes.destroy', $stratums->id) }}"> 
-                                            <a href="{{ route('app.admin.classes.modify', $stratums->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
+                                    <a href="{{ route('app.admin.classes.show', $courses->id) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                        <form method="post" action="{{ route('app.admin.classes.destroy', $courses->id) }}"> 
+                                            <a href="{{ route('app.admin.classes.modify', $courses->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
                                             @csrf 
-                                            @method('delete')
-                                            <button type="submit" onclick="return confirm('This will delete the entry!\nAre you sure?')" class="btn btn-danger btn-sm">Delete <span class="fas fa-trash"></span></button>
                                         </form>
                                     </td>
                                 </tr>

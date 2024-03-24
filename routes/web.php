@@ -7,7 +7,7 @@ use App\Http\Controllers\App\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\App\Admin\StudentsController as StudentController;
 use App\Http\Controllers\HomepageController as HomepageController;
 use App\Http\Controllers\App\Admin\EventController as EventController;
-use App\Http\Controllers\App\Admin\StratumController as StratumController;
+use App\Http\Controllers\App\Admin\CourseController as CourseController;
 
 
 /*
@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/about-us',[HomepageController::class, 'aboutus'])->name('homepage.aboutus');
 Route::get('/contact-us',[HomepageController::class, 'contactus'])->name('homepage.contactus');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::get('/app/admin', [AdminDashboard::class, 'index'])->name('app.admin.dashbord.index');
 
 Route::get('/app/admin/users', [AdminUser::class, 'index'])->name('app.admin.users.index');
@@ -47,18 +47,19 @@ Route::get('/app/admin/events/{event}', [EventController::class, 'modify'])->nam
 Route::put('/app/admin/events/{event}', [EventController::class, 'update'])->name('app.admin.events.update');
 
 
-Route::get('/app/admin/classes', [StratumController::class, 'index'])->name('app.admin.classes.index');
-Route::get('/app/admin/classes/create', [StratumController::class, 'create'])->name('app.admin.classes.create');
-Route::post('/app/admin/classes/create', [StratumController::class, 'store'])->name('app.admin.classes.store');
-Route::delete('/app/admin/classes/{stratum}', [StratumController::class, 'destroy'])->name('app.admin.classes.destroy');
-Route::get('/app/admin/classes/{stratum}', [StratumController::class, 'modify'])->name('app.admin.classes.modify');
-Route::put('/app/admin/classes/{stratum}', [StratumController::class, 'update'])->name('app.admin.classes.update');
+Route::get('/app/admin/classes', [CourseController::class, 'index'])->name('app.admin.classes.index');
+Route::get('/app/admin/classes/{id}/students', [CourseController::class, 'show'])->name('app.admin.classes.show');
+Route::get('/app/admin/classes//students/view', [CourseController::class, 'view'])->name('app.admin.classes.view');
+Route::get('/app/admin/classes/create', [CourseController::class, 'create'])->name('app.admin.classes.create');
+Route::post('/app/admin/classes/create', [CourseController::class, 'store'])->name('app.admin.classes.store');
+Route::delete('/app/admin/classes/{course}', [CourseController::class, 'destroy'])->name('app.admin.classes.destroy');
+Route::get('/app/admin/classes/{course}', [CourseController::class, 'modify'])->name('app.admin.classes.modify');
+Route::put('/app/admin/classes/{course}', [CourseController::class, 'update'])->name('app.admin.classes.update');
+Route::get('/app/admin/classes/print', [CourseController::class, 'print'])->name('app.admin.classes.print');
 
 Route::get('/app/admin/students', [StudentController::class, 'index'])->name('app.admin.students.index');
-
-
 Route::get('/app/admin/students/create', [StudentController::class, 'create'])->name('app.admin.students.create');
-Route::post('/app/admin/students/create', [StudentController::class, 'store'])->name('app.admin.students.store');
+Route::post('/app/admin/students', [StudentController::class, 'store'])->name('app.admin.students.store');
 
 Route::get('/admin/auth', [App\Http\Controllers\AdminAuthController::class, 'index'])->name('admin.auth.index');
 Route::put('/admin/auth', [App\Http\Controllers\AdminAuthController::class, 'changePassword'])->name('admin.auth.changePassword');

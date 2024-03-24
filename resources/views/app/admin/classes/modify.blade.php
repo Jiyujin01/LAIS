@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="card">
-                <form method="post" action="{{ route('app.admin.classes.update', $upcomingClass) }}">
+                <form method="post" action="{{ route('app.admin.classes.update', $course) }}">
                     @csrf
                     @method('put')
                     <div class="card-header">
@@ -23,13 +23,13 @@
                         <div class="form-group">
                             <label for="#">ID</label>
                             <input type="text" name="id" class="form-control" 
-                                value="{{ $upcomingClass->id }}"
+                                value="{{ $course->id }}"
                                 placeholder="" readonly>
                         </div>
                         <div class="form-group">
                             <label for="#">Name</label>
                             <input type="text" name="name" class="form-control" 
-                                value="{{ $upcomingClass->name }}"
+                                value="{{ $course->name }}"
                                 placeholder="Enter events name">
                             @error('name')
                                 <span class="text-danger"><small>{{ $message }}</small></span>
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label for="date">Date</label>
                             <div class="input-group date" id="datepicker" data-target-input="nearest">
-                                <input type="text" name="date" id="date" class="form-control datetimepicker-input" value="{{ $upcomingClass->date }}" data-target="#datepicker" required/>
+                                <input type="text" name="date" id="date" class="form-control datetimepicker-input" value="{{ $course->date }}" data-target="#datepicker" required/>
                                 <div class="input-group-append" data-target="#datepicker" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>

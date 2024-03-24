@@ -5,13 +5,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use App\Models\Stratum;
+use App\Models\Course;
 use App\Models\Checkinout;
 
 class Student extends Model
 {
     protected $fillable = [
-        'stratum_id', 
+        'course_id', 
         'fname',
         'mname',
         'lname',
@@ -20,10 +20,10 @@ class Student extends Model
         
     ];
     
-    public function stratum()
+    public function course()
     {
-        return $this->belongsTo(Stratum::class);
-    }     
+        return $this->belongsTo(Course::class, 'course_id', 'id');
+    }
 
     public function getFullname()
     {
