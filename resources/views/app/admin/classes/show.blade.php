@@ -3,7 +3,6 @@
 @section('title', 'Class')
 
 @section('content_header')
-@section('content_header')
     <h1>Class: {{ $students->first()->course->name }} - {{ $students->first()->course->level }}</h1>
 @stop
 
@@ -32,7 +31,7 @@
                         <th>Class</th>
                         <th>Level</th>
                         <th>Status</th>
-                        <th width="10%">Action</th>
+                        <th width="5%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,8 +42,18 @@
                             <td>{{ $student->course->user->getUname() }}</td>
                             <td>{{ $student->course->name }}</td>
                             <td>{{ $student->course->level }}</td>
-                            <td>{{ $student->checkinout->Getstate() }}</td>
-                            <td><a href="{{route('app.admin.classes.view',$student)}}" class="btn btn-warning"><i class="fas fa-eye "></i></a></td>
+                            <td>
+                                @if($student->checkinout->Getstate() == 1)
+                                    <span class="dot dot-green"></span> logIned
+                                @elseif($student->checkinout->Getstate() == 0)
+                                    <span class="dot dot-green"></span> LogOut
+                                @elseif($student->checkinout->Getstate() == 3)
+                                    <span class="dot dot-black"></span> Absent
+                                @else
+                                <span class="dot dot-red"></span> Late/Cutting
+                                @endif
+                            </td>
+                            <td><a href="{{route('app.admin.classes.view',$student)}}" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -53,7 +62,6 @@
             </table>
         </div>
     </div>
-
 @stop
 
 @section('footer')
@@ -62,6 +70,25 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-green {
+            background-color: green;
+        }
+
+        .dot-red{
+            background-color: red;
+        }
+
+        .dot-black{
+            background-color: black;
+        }
+    </style>
 @stop
 
 @section('js')
