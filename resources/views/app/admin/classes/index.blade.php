@@ -23,7 +23,7 @@
 
         <div class="card-body">
             <div class="row">
-                @foreach($course as $courses)
+            @foreach($course as $courses)
                     <div class="col-md">
                         <table class="table table-bordered table-striped">
                             <thead>
@@ -44,7 +44,7 @@
                                     <td>{{ $courses->level }}</td>    
                                     <td>{{ $courses->School_year }}</td>                
                                     <td>
-                                    <a href="{{ route('app.admin.classes.show', $courses->id) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                    <a href="{{ route('app.admin.classes.show', $courses->id) }}" class="btn btn-info">View<i class="fas fa-eye"></i></a>
                                         <form method="post" action="{{ route('app.admin.classes.destroy', $courses->id) }}"> 
                                             <a href="{{ route('app.admin.classes.modify', $courses->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
                                             @csrf 

@@ -31,7 +31,7 @@
                                 <th>CLass</th>
                                 <th>Level</th>
                                 <th>Status</th>
-                                <th width="20%">Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -56,9 +56,6 @@
                                 {{ $students->checkinout->Getstate() }}
                                 </td>
 
-                                <td>
-                                    
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
