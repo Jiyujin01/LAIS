@@ -13,72 +13,55 @@
             {{ session('status') }}
         </div>
     @endif
+
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Student LogIn List</h3>
+            <h3 class="card-title">Student Login List</h3>
             <div class="card-tools">
-            <a href="{{ route('app.admin.classes.index') }}" class="btn btn-primary btn-sm">Veiw Classes</a>
+                <a href="{{ route('app.admin.classes.index') }}" class="btn btn-primary btn-sm">View Classes</a>
             </div>
         </div>
 
         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>          
-                                <th width="10%">Student ID</th>
-                                <th width="20%">Name</th>
-                                <th>Teacher</th>
-                                <th>CLass</th>
-                                <th>Level</th>
-                                <th>Status</th>
-                                <th width="20%">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($student as $students)
-                            <tr>
-                                <td>{{ $students->id }}</td>
-                                <td>{{ $students->getFullname()}}</td>
-                                
-                                <td>
-                                {{ $students->course->user->getUname()}}
-                                </td>
-                    
-                                <td>
-                                {{ $students->course->name }}
-                                </td>
-
-                                <td>
-                                {{ $students->course->level }}
-                                </td>
-
-                                <td>
-                                {{ $students->checkinout->Getstate() }}
-                                </td>
-
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-
-                        <tfoot>
-                        
-                        </tfoot>
-                    </table>
-                </tfoot>
+            <table id="student_table" class="table table-bordered table-striped">
+                <thead>
+                    <tr>          
+                        <th width="10%">Student ID</th>
+                        <th width="20%">Name</th>
+                        <th>Teacher</th>
+                        <th>Class</th>
+                        <th>Level</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($students as $student)
+                        <tr>
+                            <td>{{ $student->id }}</td>
+                            <td>{{ $student->getFullname() }}</td>
+                            <td>{{ $student->course->user->getUname() }}</td>
+                            <td>{{ $student->course->name }}</td>
+                            <td>{{ $student->course->level }}</td>
+                            <td>{{ $student->checkinout->Getstate() }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="{{ $students->previousPageUrl() }}">&laquo;</a></li>
+                    @foreach ($students->getUrlRange(1, $students->lastPage()) as $page => $url)
+                        <li class="page-item {{ ($students->currentPage() == $page) ? 'active' : '' }}"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                    @endforeach
+                    <li class="page-item"><a class="page-link" href="{{ $students->nextPageUrl() }}">&raquo;</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-
 @stop
 
-
 @section('footer')
-
-Copyright &copy; 2024. <strong>Learners Attendance Information System</strong>. All rights reserved.
-
+    Copyright &copy; 2024. <strong>Learners Attendance Information System</strong>. All rights reserved.
 @stop
 
 @section('css')
@@ -86,10 +69,9 @@ Copyright &copy; 2024. <strong>Learners Attendance Information System</strong>. 
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
-
-
+    <script>
+        $(document).ready(function() {
+            $('#student_table').DataTable();
+        });
+    </script>
 @stop
-
-
-

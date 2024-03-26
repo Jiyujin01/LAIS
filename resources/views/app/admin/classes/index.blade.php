@@ -7,15 +7,16 @@
 @stop
 
 @section('content')
-@if (session('status'))
+    @if (session('status'))
         <div class="alert alert-success alert-dismissible auto-close">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             {{ session('status') }}
         </div>
     @endif
+
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">List</h3>
+            <h3 class="card-title">Class List</h3>
             <div class="card-tools">
                 <a href="{{ route('app.admin.classes.create') }}" class="btn btn-primary btn-sm">New Class</a>
             </div>
@@ -23,38 +24,32 @@
 
         <div class="card-body">
             <div class="row">
-                @foreach($course as $courses)
-                    <div class="col-md">
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th width="10%">ID</th>
-                                    <th>Name</th>
-                                    <th>Teacher Adviser</th>
-                                    <th>Grade Level</th>
-                                    <th>School Year</th>
-                                    <th width="20%">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $courses->id }}</td>
-                                    <td>{{ $courses->name }}</td>
-                                    <td>{{ $courses->user->getUname() }}</td> 
-                                    <td>{{ $courses->level }}</td>    
-                                    <td>{{ $courses->School_year }}</td>                
-                                    <td>
-                                    <a href="{{ route('app.admin.classes.show', $courses->id) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                        <form method="post" action="{{ route('app.admin.classes.destroy', $courses->id) }}"> 
-                                            <a href="{{ route('app.admin.classes.modify', $courses->id) }}" class="btn btn-warning btn-sm">Modify <span class="fas fa-edit"></span></a>
-                                            @csrf 
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                            </tfoot>
-                        </table>
+                @foreach($courses as $course)
+                    <?php 
+                        $totalStudents = $course->students()->count();
+                        $studentsState1 = $course->students()->whereHas('checkinout', function ($query) {
+                            $query->where('state', 1);
+                        })->count();
+                    ?>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $course->name }}- {{ $course->level }}</h4>
+                                <br>
+                                <br>
+                                <p class="card-text">Teacher Adviser: {{ $course->user->getUname() }}</p>
+                                <p class="card-text">Grade Level: {{ $course->level }}</p>
+                                <p class="card-text">Total Students: {{ $totalStudents }}</p>
+                                <p class="card-text">No of Student LogIned: {{ $studentsState1 }}</p>
+                                <a href="{{ route('app.admin.classes.show', $course->id) }}" class="btn btn-info"><i class="fas fa-eye"></i> View</a>
+                                <a href="{{ route('app.admin.classes.modify', $course->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Modify</a>
+                                <form method="post" action="{{ route('app.admin.classes.destroy', $course->id) }}" style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             </div>
@@ -72,21 +67,4 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false, "pageLength": 5,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example1').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-            });
-        });
-    </script>
 @stop

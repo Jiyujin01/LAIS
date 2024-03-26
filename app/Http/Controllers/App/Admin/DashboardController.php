@@ -27,8 +27,8 @@ class DashboardController extends Controller
     public function index()
 
     {
-        $student = Student::all();
-        return view('app.admin.dashbord.index', compact('student'));
+        $students = Student::paginate(10);
+        return view('app.admin.dashbord.index', compact('students'));
     }
 
     public function show($id)
