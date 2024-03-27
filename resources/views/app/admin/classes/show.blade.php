@@ -3,7 +3,11 @@
 @section('title', 'Class')
 
 @section('content_header')
-    <h1>Class: {{ $students->first()->course->name }} - {{ $students->first()->course->level }}</h1>
+    <div class="row">
+    <div class="col-sm-4"><h1>Class: {{ $students->first()->course->name }} - {{ $students->first()->course->level }}</h1></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"><div class="float-right" id="live-clock"></div></div>
+</div>
 @stop
 
 @section('content')
@@ -17,7 +21,7 @@
         <div class="card-header">
             <h3 class="card-title">Student Login List</h3>
             <div class="card-tools">
-                <a href="{{ route('app.admin.classes.index') }}" class="btn btn-primary btn-sm">Export File</a>
+                <a href="{{ route('app.admin.classes.print') }}" class="btn btn-primary btn-sm">Export File</a>
             </div>
         </div>
 
@@ -92,5 +96,28 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to update the live clock every second
+            function updateClock() {
+                var now = new Date();
+                var day = now.getDate();
+                var month = now.getMonth() + 1;
+                var year = now.getFullYear();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                var dateString = day + '/' + month + '/' + year;
+                var timeString = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                $('#live-clock').html('<span>' + dateString + ' ' + timeString + '</span>');
+            }
+
+            // Initial call to update the clock
+            updateClock();
+
+            // Update the clock every second
+            setInterval(updateClock, 1000);
+        });
+    </script>
 @stop

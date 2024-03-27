@@ -291,7 +291,6 @@ return [
     */
 
     'menu' => [
-        /*['header' => 'Student Dashboard'],*/
         [
             'text'        => 'Dashboard',
             'url'         => 'app/admin',

@@ -7,10 +7,6 @@
 @stop
 
 @section('content')
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style>
 	.borderdraw {
 		position:fixed;
@@ -48,18 +44,18 @@
 </head><br>
 <table border="0" cellspacing="0" cellpadding="1" width="800">
 	<tr>
-		<td width="10%" align="right"><img src="./assets/images/deped_logo.png" width="40"></td>
+		<td width="10%" align="right"><img src="/img/deped_logo.png" width="40"></td>
 		<td align="center" valign="top">
 			<strong><font size="+1">School Form 2 (SF2) Daily Attendance Report of Learners</font></strong><br>
 			<br>
 			<table width="100%" border="0">
 							<tr height="25">
-					<td width="15%" align="right" ><font size="1">Level / Subject &nbsp;</td>
+					<td width="15%" align="right" ><font size="1">Level / Section &nbsp;</td>
 					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> / </td>
 					<td width="3%"></td>
 					<td></td>
-					<td width="15%" align="right"><font size="1">Schedule / Room &nbsp;</td>
-					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> () / </td>
+					<td width="15%" align="right"><font size="1">School Year &nbsp;</td>
+					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> </td>
 					<td width="3%"></td>
 					<td width="3%" align="right"></td>
 					<td align="right" colspan="2"><font size="1">For the Month of &nbsp;</td>
@@ -68,7 +64,7 @@
 		
 			</table>
 		</td>
-		<td width="10%"><img src="./assets/images/sanhs_logo.png" width="40"></td>
+		<td width="10%"><img src="/img/sanhs_logo.png" width="40"></td>
 	</tr>
 </table>
 <table border="1" cellspacing="0" cellpadding="1" width="800">
@@ -76,7 +72,7 @@
 		<th rowspan="3" width="1%">#</th>
 		<th rowspan="3" width="20%">NAME (Last Name, First Name, Middle Name)</th>
 		<th colspan="25">(1st row for date)</th>
-		<th rowspan="3" width="10%">Section</th>
+		<th rowspan="2" colspan="2" width="10%">Total for the Month</th>
 	</tr>
 	<tr height="15">
 		<th width="2%"></th>
@@ -130,11 +126,14 @@
 		<th>T</th>
 		<th>W</th>
 		<th>TH</th>
-		<th>F</th>	
+		<th>F</th>
+		<th>PRESENT</th>
+		<th>TARDY</th>
 	</tr>
 		<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td align="center"><strong><=== MALE | TOTAL Per Day ===></strong></td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -191,10 +190,12 @@
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 
 	<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td align="center"><strong>Combined | TOTAL Per Day</strong></td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -235,22 +236,21 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.colVis.min.js"></script>
     <script>
         $(function () {
             $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false, "pageLength": 5,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                "responsive": true, 
+                "lengthChange": false, 
+                "autoWidth": false, 
+                "pageLength": 5,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example1').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-            });
         });
     </script>
 @stop

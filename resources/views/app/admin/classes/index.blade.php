@@ -3,7 +3,11 @@
 @section('title', 'Classes')
 
 @section('content_header')
-    <h1>Classes</h1>
+<div class="row">
+    <div class="col-sm-4"><h1>Classes</h1></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"><div class="float-right" id="live-clock"></div></div>
+</div>
 @stop
 
 @section('content')
@@ -38,7 +42,6 @@
                                 <br>
                                 <br>
                                 <p class="card-text">Teacher Adviser: {{ $course->user->getUname() }}</p>
-                                <p class="card-text">Grade Level: {{ $course->level }}</p>
                                 <p class="card-text">Total Students: {{ $totalStudents }}</p>
                                 <p class="card-text">No of Student LogIned: {{ $studentsState1 }}</p>
                                 <a href="{{ route('app.admin.classes.show', $course->id) }}" class="btn btn-info"><i class="fas fa-eye"></i> View</a>
@@ -66,5 +69,28 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to update the live clock every second
+            function updateClock() {
+                var now = new Date();
+                var day = now.getDate();
+                var month = now.getMonth() + 1;
+                var year = now.getFullYear();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                var dateString = day + '/' + month + '/' + year;
+                var timeString = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                $('#live-clock').html('<span>' + dateString + ' ' + timeString + '</span>');
+            }
+
+            // Initial call to update the clock
+            updateClock();
+
+            // Update the clock every second
+            setInterval(updateClock, 1000);
+        });
+    </script>
 @stop

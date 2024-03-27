@@ -97,8 +97,6 @@ class CourseController extends Controller
 
     public function print()
     {
-
-
         return view('app.admin.classes.print');
     }
     

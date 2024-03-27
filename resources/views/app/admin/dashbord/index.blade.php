@@ -3,7 +3,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+<div class="row">
+    <div class="col-sm-4"><h1>Dashboard</h1></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"><div class="float-right" id="live-clock"></div></div>
+</div>
 @stop
 
 @section('content')
@@ -69,9 +73,29 @@
 @stop
 
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#student_table').DataTable();
+            // Function to update the live clock every second
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                var day = now.getDate();
+                var month = now.getMonth() + 1;
+                var year = now.getFullYear();
+                var timeString = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                var dateString = day + '/' + month + '/' + year;
+                $('#live-clock').html('<span>' + dateString + ' ' + timeString + '</span>');
+            }
+
+            // Initial call to update the clock
+            updateClock();
+
+            // Update the clock every second
+            setInterval(updateClock, 1000);
         });
     </script>
 @stop
