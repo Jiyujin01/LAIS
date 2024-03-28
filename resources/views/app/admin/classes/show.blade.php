@@ -21,7 +21,13 @@
         <div class="card-header">
             <h3 class="card-title">Student Login List</h3>
             <div class="card-tools">
-                <a href="{{ route('app.admin.classes.print') }}" class="btn btn-primary btn-sm">Export File</a>
+                <form method="POST" action="{{ route('app.admin.classes.print') }}">
+                @csrf
+                @foreach($students as $student)
+                    <input type="hidden" name="students[]" value="{{ $student->id }}">
+                @endforeach
+                <button type="submit" class="btn btn-primary btn-sm">Export File</button>
+            </form>
             </div>
         </div>
 

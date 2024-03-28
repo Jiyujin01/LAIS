@@ -95,9 +95,13 @@ class CourseController extends Controller
         return view('app.admin.classes.view', compact('student'));
     }
 
-    public function print()
+    public function print(Request $request)
     {
-        return view('app.admin.classes.print');
+        $studentIds = $request->input('students');
+    $students = Student::whereIn('id', $studentIds)->get();
+        // Process printing logic here
+
+        return view('app.admin.classes.print', compact('students'));
     }
     
 }

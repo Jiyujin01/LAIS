@@ -51,7 +51,7 @@ Route::get('/app/admin/classes', [CourseController::class, 'index'])->name('app.
 Route::get('/app/admin/classes/{id}/students', [CourseController::class, 'show'])->name('app.admin.classes.show');
 Route::get('/app/admin/classes//students/view', [CourseController::class, 'view'])->name('app.admin.classes.view');
 Route::get('/app/admin/classes/create', [CourseController::class, 'create'])->name('app.admin.classes.create');
-Route::get('/app/admin/classes/print', [CourseController::class, 'print'])->name('app.admin.classes.print');
+Route::post('/app/admin/classes/print', [CourseController::class, 'print'])->name('app.admin.classes.print');
 Route::post('/app/admin/classes/create', [CourseController::class, 'store'])->name('app.admin.classes.store');
 Route::delete('/app/admin/classes/{course}', [CourseController::class, 'destroy'])->name('app.admin.classes.destroy');
 Route::get('/app/admin/classes/{course}', [CourseController::class, 'modify'])->name('app.admin.classes.modify');

@@ -51,7 +51,7 @@
 			<table width="100%" border="0">
 							<tr height="25">
 					<td width="15%" align="right" ><font size="1">Level / Section &nbsp;</td>
-					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> / </td>
+					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> {{ $students->first()->course->name }} </td>
 					<td width="3%"></td>
 					<td></td>
 					<td width="15%" align="right"><font size="1">School Year &nbsp;</td>
@@ -130,6 +130,37 @@
 		<th>PRESENT</th>
 		<th>TARDY</th>
 	</tr>
+	<tr height="25">
+		<td align="right"><strong>0</strong></td>
+		<td align="center"><strong>full name MALE</strong></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 		<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td align="center"><strong><=== MALE | TOTAL Per Day ===></strong></td>
@@ -191,7 +222,6 @@
 		<td></td>
 		<td></td>
 		<td></td>
-
 	<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td align="center"><strong>Combined | TOTAL Per Day</strong></td>
