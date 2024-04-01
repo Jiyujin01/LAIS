@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Course;
 use App\Models\Checkinout;
 
@@ -30,9 +31,9 @@ class Student extends Model
         return $this->fname . ' ' . $this->lname;
     }
 
-    public function checkinout(): HasOne
+    public function checkinout(): HasMany
     {
-        return $this->hasOne(Checkinout::class);
+        return $this->hasMany(Checkinout::class);
     }
 
 }

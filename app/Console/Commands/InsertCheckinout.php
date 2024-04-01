@@ -6,21 +6,21 @@ use Illuminate\Console\Command;
 use App\Models\Checkinout;
 use App\Models\Student;
 
-class InsertCheckinouts extends Command
+class InsertCheckinout extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'insert:checkinouts';
+    protected $signature = 'insert:checkinout';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Insert data into the checkinouts table';
+    protected $description = 'Insert data into the checkinout table';
 
     /**
      * Execute the console command.
@@ -29,7 +29,7 @@ class InsertCheckinouts extends Command
      */ 
     public function handle()
     { 
-        $students = Student::whereDoesntHave('checkinouts', function ($query) {
+        $students = Student::whereDoesntHave('checkinout', function ($query) {
             $query->where('created_at', '>=', now()->toDateString() . ' 16:45:00');
         })->get();
     

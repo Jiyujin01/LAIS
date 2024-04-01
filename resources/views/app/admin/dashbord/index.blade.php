@@ -46,7 +46,11 @@
                             <td>{{ $student->course->user->getUname() }}</td>
                             <td>{{ $student->course->name }}</td>
                             <td>{{ $student->course->level }}</td>
-                            <td>{{ $student->checkinout->Getstate() }}</td>
+                            <td>
+            @foreach($student->checkinout as $checkinout)
+                {{ $checkinout->Getstate() }}
+            @endforeach
+        </td>
                         </tr>
                     @endforeach
                 </tbody>
