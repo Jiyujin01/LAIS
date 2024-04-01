@@ -17,6 +17,10 @@
 		z-index:-1;
 	}
 
+	body {
+            color: black;
+        }
+
 	.tag1{ z-index:9999;position:absolute;top:40px; }
 	.tag2 { z-index:9999;position:absolute;left:40px; }
 	.diag { position: relative; width: 50px; height: 50px; }
@@ -42,6 +46,7 @@
 	}
 	</style>	
 </head><br>
+<body style="color: black;">
 <table border="0" cellspacing="0" cellpadding="1" width="800">
 	<tr>
 		<td width="10%" align="right"><img src="/img/deped_logo.png" width="40"></td>
@@ -254,7 +259,7 @@
 		<td></td>
 	</tr>	
 </table>
-
+</body>
 @stop
 
 @section('footer')
