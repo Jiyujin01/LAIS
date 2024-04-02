@@ -135,10 +135,29 @@
 		<th>PRESENT</th>
 		<th>TARDY</th>
 	</tr>
+	@foreach($students->where('gender', 'Male') as $student)
 	<tr height="25">
 		<td align="right"><strong>0</strong></td>
-		<td align="center"><strong>full name MALE</strong></td>
-		<td></td>
+		<td align="center">
+
+		<strong>{{ $student->getFullname() }}</strong></td>
+		<td>@foreach($student->checkinout as $checkinout)
+				@php
+					$specificDate = '2024-04-02'; // Change this to your specific date
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+				@endphp
+				@if($createdAtDate === $specificDate)
+				@if($checkinout->Getstate() == 1)
+					<span class="triangle triangle-green"></span>
+				@elseif($checkinout->Getstate() == 0)
+					<span class="triangle triangle-green"></span>
+				@elseif($checkinout->Getstate() == 2)
+					<span class="triangle triangle-black"></span>
+				@else
+					<span class="triangle triangle-red"></span>
+				@endif
+			@endif
+			@endforeach</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -166,6 +185,7 @@
 		<td></td>
 		<td></td>
 	</tr>
+	@endforeach
 		<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td align="center"><strong><=== MALE | TOTAL Per Day ===></strong></td>
@@ -268,6 +288,28 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+	<style>
+        .triangle {
+    width: 0;
+    height: 0;
+	padding: -100px
+	padding-top: -50px;
+	padding-bottom: -100px;
+}
+
+	.triangle-green {
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-right: 10px solid red;
+		}
+
+	.triangle-red {
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-right: 10px solid red;
+	}
+
+    </style>
 @stop
 
 @section('js')

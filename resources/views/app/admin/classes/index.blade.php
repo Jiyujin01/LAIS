@@ -32,7 +32,8 @@
                     <?php 
                         $totalStudents = $course->students()->count();
                         $studentsState1 = $course->students()->whereHas('checkinout', function ($query) {
-                            $query->where('state', 1);
+                            $query->where('state', 1)
+                            ->whereDate('created_at', now()->toDateString());
                         })->count();
                     ?>
                     <div class="col-md-4">
