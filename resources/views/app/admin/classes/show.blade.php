@@ -26,7 +26,7 @@
                 @foreach($students as $student)
                     <input type="hidden" name="students[]" value="{{ $student->id }}">
                 @endforeach
-                <button type="submit" class="btn btn-primary btn-sm">Export File</button>
+                <button type="submit" class="btn btn-primary btn-sm">Print Report</button>
             </form>
             </div>
         </div>
@@ -45,7 +45,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($students as $student)
+                @foreach($students as $student)
                         <tr>
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->getFullname() }}</td>
@@ -53,15 +53,19 @@
                             <td>{{ $student->course->name }}</td>
                             <td>{{ $student->course->level }}</td>
                             <td>
-                                @if($student->checkinout->Getstate() == 1)
-                                    <span class="dot dot-green"></span> logIned
-                                @elseif($student->checkinout->Getstate() == 0)
-                                    <span class="dot dot-green"></span> LogOut
-                                @elseif($student->checkinout->Getstate() == 3)
-                                    <span class="dot dot-black"></span> Absent
-                                @else
-                                <span class="dot dot-red"></span> Late/Cutting
-                                @endif
+                            @foreach($student->checkinout as $checkinout)
+                                    @if($checkinout->created_at->isToday())
+                                        @if($checkinout->Getstate() == 1)
+                                            <span class="dot dot-green"></span> LogIn
+                                        @elseif($checkinout->Getstate() == 0)
+                                            <span class="dot dot-green"></span> LogOut
+                                        @elseif($checkinout->Getstate() == 2)
+                                            <span class="dot dot-black"></span> Absent
+                                        @else
+                                            <span class="dot dot-red"></span> Late/Cutting
+                                        @endif
+                                    @endif
+                                @endforeach
                             </td>
                             <td><a href="{{route('app.admin.classes.view',$student)}}" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
                         </tr>

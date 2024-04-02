@@ -39,19 +39,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($students as $student)
-                        <tr>
-                            <td>{{ $student->id }}</td>
-                            <td>{{ $student->getFullname() }}</td>
-                            <td>{{ $student->course->user->getUname() }}</td>
-                            <td>{{ $student->course->name }}</td>
-                            <td>{{ $student->course->level }}</td>
-                            <td>
-            @foreach($student->checkinout as $checkinout)
-                {{ $checkinout->Getstate() }}
-            @endforeach
-        </td>
-                        </tr>
+                @foreach($students as $student)
+                        @foreach($student->checkinout as $checkinout)
+                            @if ($checkinout->created_at->isToday())
+                                <tr>
+                                    <td>{{ $student->id }}</td>
+                                    <td>{{ $student->getFullname() }}</td>
+                                    <td>{{ $student->course->user->getUname() }}</td>
+                                    <td>{{ $student->course->name }}</td>
+                                    <td>{{ $student->course->level }}</td>
+                                    <td>
+                                    @if($checkinout->Getstate() == 1)
+                                            <span class="dot dot-green"></span> LogIn
+                                        @elseif($checkinout->Getstate() == 0)
+                                            <span class="dot dot-green"></span> LogOut
+                                        @elseif($checkinout->Getstate() == 2)
+                                            <span class="dot dot-black"></span> Absent
+                                        @else
+                                            <span class="dot dot-red"></span> Late/Cutting
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endif
+                        @endforeach
                     @endforeach
                 </tbody>
             </table>
@@ -74,6 +84,25 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-green {
+            background-color: green;
+        }
+
+        .dot-red{
+            background-color: red;
+        }
+
+        .dot-black{
+            background-color: black;
+        }
+    </style>
 @stop
 
 @section('js')

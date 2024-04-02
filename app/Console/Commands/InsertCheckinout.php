@@ -30,7 +30,7 @@ class InsertCheckinout extends Command
     public function handle()
     { 
         $students = Student::whereDoesntHave('checkinout', function ($query) {
-            $query->where('created_at', '>=', now()->toDateString() . ' 16:45:00');
+            $query->where('created_at', '>=', now()->toDateString() . ' 16:46:00');
         })->get();
     
         // Insert check-in data for each student

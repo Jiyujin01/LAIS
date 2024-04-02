@@ -60,11 +60,11 @@
 					<td width="3%"></td>
 					<td></td>
 					<td width="15%" align="right"><font size="1">School Year &nbsp;</td>
-					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> </td>
+					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1">{{ $students->first()->course->School_year}}-2024 </td>
 					<td width="3%"></td>
 					<td width="3%" align="right"></td>
 					<td align="right" colspan="2"><font size="1">For the Month of &nbsp;</td>
-					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	</td>
+					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px">&nbsp;&nbsp;&nbsp; <span style="font-size: 10px;">April</span></td>
 				</tr>
 		
 			</table>
