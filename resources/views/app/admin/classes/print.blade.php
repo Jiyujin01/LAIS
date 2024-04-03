@@ -141,7 +141,7 @@
 		<td align="center">
 
 		<strong>{{ $student->getFullname() }}</strong></td>
-		<td>@foreach($student->checkinout as $checkinout)
+		<td style="text-align: left;">@foreach($student->checkinout as $checkinout)
 				@php
 					$specificDate = '2024-04-02'; // Change this to your specific date
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
@@ -292,9 +292,8 @@
         .triangle {
     width: 0;
     height: 0;
-	padding: -100px
-	padding-top: -50px;
-	padding-bottom: -100px;
+	display: inline-block;
+        margin-bottom: -5px
 }
 
 	.triangle-green {
@@ -307,6 +306,11 @@
 		border-top: 10px solid transparent;
 		border-bottom: 10px solid transparent;
 		border-right: 10px solid red;
+	}
+
+	.triangle-black {
+		border-bottom: 15px solid #333;
+		border-right:15px solid transparent;
 	}
 
     </style>
