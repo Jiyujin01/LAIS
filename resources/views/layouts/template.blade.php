@@ -84,7 +84,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/about-us">About</a></li>
         <li><a href="/contact-us">Contact us</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="{{route('login')}}">Login</a></li>
       </ul>
     </div>
   </div>

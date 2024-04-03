@@ -1,12 +1,6 @@
-@extends('adminlte::page')
-
-@section('title', 'Classes')
-
-@section('content_header')
-    <h1>Classes</h1>
-@stop
-
-@section('content')
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style>
 	.borderdraw {
 		position:fixed;
@@ -44,12 +38,34 @@
 		font-family: Tahoma, "Times New Roman", serif; 
 		font-size: 0.5em;		
 	}
+
+        .triangle {
+    width: 0;
+    height: 0;
+	display: inline-block;
+}
+
+	.triangle-halfdown {
+		border-bottom: 22px solid #333;
+		border-left:22px solid transparent;
+		}
+
+	.triangle-halfup {
+		border-top: 22px solid #333;
+		border-right:22px solid transparent;
+	}
+
+	.triangle-full {
+		border-bottom: 22px solid #333;
+		border-right:22px solid #333;
+	}
+
 	</style>	
 </head><br>
 <body style="color: black;">
 <table border="0" cellspacing="0" cellpadding="1" width="800">
 	<tr>
-		<td width="10%" align="right"><img src="/img/deped_logo.png" width="40"></td>
+		
 		<td align="center" valign="top">
 			<strong><font size="+1">School Form 2 (SF2) Daily Attendance Report of Learners</font></strong><br>
 			<br>
@@ -69,7 +85,7 @@
 		
 			</table>
 		</td>
-		<td width="10%"><img src="/img/sanhs_logo.png" width="40"></td>
+		<td width="10%"><img src="{{url('/')}}/img/sanhs_logo.png" width="40"></td>
 	</tr>
 </table>
 <table border="1" cellspacing="0" cellpadding="1" width="800">
@@ -141,23 +157,31 @@
 		<td align="center">
 
 		<strong>{{ $student->getFullname() }}</strong></td>
-		<td style="text-align: left;">@foreach($student->checkinout as $checkinout)
-				@php
-					$specificDate = '2024-04-02'; // Change this to your specific date
+		<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-02'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
-				@endphp
-				@if($createdAtDate === $specificDate)
-				@if($checkinout->Getstate() == 1)
-					<span class="triangle triangle-green"></span>
-				@elseif($checkinout->Getstate() == 0)
-					<span class="triangle triangle-green"></span>
-				@elseif($checkinout->Getstate() == 2)
-					<span class="triangle triangle-black"></span>
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-half"></span>
 				@else
-					<span class="triangle triangle-red"></span>
+					<span class="triangle triangle-halfup"></span>
 				@endif
 			@endif
-			@endforeach</td>
+		</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -189,6 +213,38 @@
 		<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td align="center"><strong><=== MALE | TOTAL Per Day ===></strong></td>
+		<td><strong></strong></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	@foreach($students->where('gender', 'Female') as $student)
+	<tr height="25">
+		<td align="right"><strong>0</strong></td>
+		<td  align="center"><strong><strong>{{ $student->getFullname() }}</strong></strong></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -217,6 +273,7 @@
 		<td></td>
 		<td></td>
 	</tr>
+	@endforeach
 		<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td align="center"><strong><=== FEMALE | TOTAL Per Day ===></strong></td>
@@ -280,41 +337,6 @@
 	</tr>	
 </table>
 </body>
-@stop
-
-@section('footer')
-    Copyright &copy; 2024. <strong>Web-Based_ID_Entry</strong>. All rights reserved.
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-	<style>
-        .triangle {
-    width: 0;
-    height: 0;
-	display: inline-block;
-        margin-bottom: -5px
-}
-
-	.triangle-green {
-			border-top: 10px solid transparent;
-			border-bottom: 10px solid transparent;
-			border-right: 10px solid red;
-		}
-
-	.triangle-red {
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid transparent;
-		border-right: 10px solid red;
-	}
-
-	.triangle-black {
-		border-bottom: 15px solid #333;
-		border-right:15px solid transparent;
-	}
-
-    </style>
-@stop
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

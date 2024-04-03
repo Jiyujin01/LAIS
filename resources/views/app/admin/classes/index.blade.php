@@ -45,7 +45,7 @@
                                 <p class="card-text">Teacher Adviser: {{ $course->user->getUname() }}</p>
                                 <p class="card-text">Total Students: {{ $totalStudents }}</p>
                                 <p class="card-text">No of Student LogIned: {{ $studentsState1 }}</p>
-                                <a href="{{ route('app.admin.classes.show', $course->id) }}" class="btn btn-info"><i class="fas fa-eye"></i> View</a>
+                                <a href="{{ route('app.admin.classes.show', $course->id) }}" class="btn btn-info  btn-sm"><i class="fas fa-eye"></i> View</a>
                                 <a href="{{ route('app.admin.classes.modify', $course->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Modify</a>
                                 <form method="post" action="{{ route('app.admin.classes.destroy', $course->id) }}" style="display: inline-block;">
                                     @csrf
