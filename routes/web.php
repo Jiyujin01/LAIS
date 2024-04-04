@@ -62,7 +62,7 @@ Route::middleware(['auth', 'active'])->group(function () {
 
     Route::get('/app/admin/classes', [CourseController::class, 'index'])->name('app.admin.classes.index');
     Route::get('/app/admin/classes/{id}/students', [CourseController::class, 'show'])->name('app.admin.classes.show');
-    Route::get('/app/admin/classes//students/view', [CourseController::class, 'view'])->name('app.admin.classes.view');
+    Route::get('/app/admin/classes/students/view', [CourseController::class, 'view'])->name('app.admin.classes.view');
     Route::get('/app/admin/classes/create', [CourseController::class, 'create'])->name('app.admin.classes.create')
     ->middleware('admin');
     Route::post('/app/admin/classes/print', [CourseController::class, 'print'])->name('app.admin.classes.print');
