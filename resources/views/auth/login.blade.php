@@ -36,9 +36,10 @@
                         </div>
 
                         <div class="row mb-3">
+                           
+                            <div class="col-md-6 offset-md-4">
                             <label for="password" class="sr-only">{{ __('Password') }}</label>
 
-                            <div class="col-md-6 offset-md-4">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror bg-light text-black" name="password" required autocomplete="current-password" placeholder="Password" style="color: black;">
 
                                 @error('password')

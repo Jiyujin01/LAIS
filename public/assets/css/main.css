@@ -2178,8 +2178,8 @@ input, select, textarea {
 		input[type="reset"].primary,
 		button.primary,
 		.button.primary {
-			background: #83d3c9;
-			border-color: #83d3c9;
+			background: #63693A;
+			border-color: #353d1e;
 			color: #fff !important;
 		}
 
@@ -2188,8 +2188,8 @@ input, select, textarea {
 			input[type="reset"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background: #96dad1 !important;
-				border-color: #96dad1 !important;
+				background: #63693A !important;
+				border-color: #353d1e !important;
 			}
 
 		input[type="button"].fit,
@@ -2311,7 +2311,7 @@ input, select, textarea {
 	}
 
 	#header {
-		background: #fff;
+		background: #353d1e;
 		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.075);
 		color: inherit;
 		cursor: default;
@@ -2484,7 +2484,7 @@ input, select, textarea {
 			}
 
 			.dropotron > li:hover > a {
-				background: #83d3c9;
+				background: #63693A;
 				color: #fff;
 			}
 

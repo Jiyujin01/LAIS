@@ -14,9 +14,9 @@
 			<!-- Header -->
 				<header id="header" class="alt">
 				<h1 id="logo" style="display: flex; align-items: center;">
-				<img src="{{ url('/') }}/img/sanhs_logo.png" width="50" alt="Logo Image">
+				<img src="{{ url('/') }}/img/sanhs_logo.png" width="60" alt="Logo Image">
 						<a href="{{ route('homepage.index') }}">
-						<span style="margin-top: -10px;"> Learners Attendance Information System</span>
+						<span style="margin-top: -10px; margin-left: 10px;"> Learners Attendance Information System</span>
 						</a>
 					</h1>
 
