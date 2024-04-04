@@ -33,6 +33,16 @@ body {
 	line-height: 1;
 }
 
+.dashboard-info {
+	margin: 30px;
+	background-color:  #383737;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
 ol, ul {
 	list-style: none;
 }

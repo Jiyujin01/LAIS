@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Twenty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>LAIS</title>
@@ -33,14 +29,6 @@
 								<li><a href="{{route('homepage.index')}}">Home</a></li>
 								<li><a href="{{ route('homepage.aboutus') }}">About</a></li>
 								<li><a href="{{route('homepage.contactus')}}">Contact us</a></li>
-										<ul>
-											<li><a href="#">Dolore Sed</a></li>
-											<li><a href="#">Consequat</a></li>
-											<li><a href="#">Lorem Magna</a></li>
-											<li><a href="#">Sed Magna</a></li>
-											<li><a href="#">Ipsum Nisl</a></li>
-										</ul>
-									</li>
 								</ul>
 							</li>
 							<li><a href="{{route('login')}}" class="button primary" style="background-color: rgba(27, 52, 46, 0.5);">Login</a></li>

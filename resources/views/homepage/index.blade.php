@@ -4,10 +4,9 @@
     Home
 @endsection
 
-@section('pageContent')
-    
-<div class="dashboard-info">
-        <h2><span class="icon solid fa-info-circle"></span> Welcome to the Learners Attendance Information System Dashboard</h2>
+@section('pageContent')     
+    <div class="dashboard-info">
+    <h2 style="text-align: center;"><span class="icon solid fa-info-circle"></span> Welcome to the Learners Attendance Information System Dashboard</h2>
         <p class="subheading">LAIS is a sophisticated solution designed to streamline the management and monitoring of student attendance within educational institutions.</p>
         
         <div class="feature">
@@ -46,50 +45,83 @@
 
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
     <style>
        .dashboard-info {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .intro {
-        font-size: 1.2em;
-        margin-bottom: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-    .features,
-    .how-it-works,
-    .benefits {
-        margin-bottom: 30px;
-    }
+        .intro {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
 
-    .features h3,
-    .how-it-works h3,
-    .benefits h3 {
-        font-size: 1.3em;
-        margin-bottom: 10px;
-    }
+        .features,
+        .how-it-works,
+        .benefits {
+            margin-bottom: 30px;
+        }
 
-    .features ul,
-    .benefits ul {
-        padding-left: 20px;
-    }
+        .features h3,
+        .how-it-works h3,
+        .benefits h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
 
-    .features ul li,
-    .benefits ul li {
-        margin-bottom: 10px;
-    }
+        .features ul,
+        .benefits ul {
+            padding-left: 20px;
+        }
 
-    .cta {
-        font-weight: bold;
-        font-style: italic;
-        text-align: center;
-    }
+        .features ul li,
+        .benefits ul li {
+            margin-bottom: 10px;
+        }
 
+        .cta {
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .dashboard-info {
+                padding: 10px;
+            }
+
+            .features ul,
+            .benefits ul {
+                padding-left: 10px;
+            }
+
+            .features h3,
+            .how-it-works h3,
+            .benefits h3 {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-info {
+                padding: 5px;
+            }
+
+            .features ul,
+            .benefits ul {
+                padding-left: 5px;
+            }
+
+            .features h3,
+            .how-it-works h3,
+            .benefits h3 {
+                font-size: 1em;
+            }
+        }
     </style>
 @stop

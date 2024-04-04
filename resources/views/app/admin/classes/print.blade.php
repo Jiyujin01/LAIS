@@ -159,6 +159,31 @@
 		<strong>{{ $student->getFullname() }}</strong></td>
 		<td style="text-align: center;">
 			@php
+				$specificDate = '2024-04-01'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif
+		</td>
+		<td style="text-align: center;">
+			@php
 				$specificDate = '2024-04-02'; // Change this to your specific date
 				$latestCheckinout = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
@@ -176,33 +201,491 @@
 				@elseif($latestCheckinout->Getstate() == 0)
 					<span class="triangle triangle-no"></span>
 				@elseif($latestCheckinout->Getstate() == 2)
-					<span class="triangle triangle-half"></span>
+					<span class="triangle triangle-full"></span>
 				@else
 					<span class="triangle triangle-halfup"></span>
 				@endif
-			@endif
-		</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-03'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-04'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-05'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-08'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-09'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-10'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-11'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-12'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-15'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-16'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-17'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-18'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-19'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-22'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-23'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-24'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-25'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-26'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-29'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-30'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -245,28 +728,535 @@
 	<tr height="25">
 		<td align="right"><strong>0</strong></td>
 		<td  align="center"><strong><strong>{{ $student->getFullname() }}</strong></strong></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-01'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif
+		</td>
+		<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-02'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-03'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-04'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-05'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-08'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-09'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-10'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-11'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-12'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-15'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-16'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-17'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-18'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-19'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-22'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-23'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-24'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-25'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-26'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-29'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
+			<td style="text-align: center;">
+			@php
+				$specificDate = '2024-04-30'; // Change this to your specific date
+				$latestCheckinout = null;
+				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
+					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					if($createdAtDate === $specificDate) {
+						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+			@endphp
+
+			@if($latestCheckinout)
+				@if($latestCheckinout->Getstate() == 1)
+					<span class="triangle triangle-halfdown"></span>
+				@elseif($latestCheckinout->Getstate() == 0)
+					<span class="triangle triangle-no"></span>
+				@elseif($latestCheckinout->Getstate() == 2)
+					<span class="triangle triangle-full"></span>
+				@else
+					<span class="triangle triangle-halfup"></span>
+				@endif
+			@endif</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -337,6 +1327,7 @@
 	</tr>	
 </table>
 </body>
+<script>window.print();</script>
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
