@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.index')
 
 @section('pageTitle')
     Contact Us
