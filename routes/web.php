@@ -21,7 +21,7 @@ use App\Http\Controllers\App\Admin\CourseController as CourseController;
 */
 
 Route::get('/',[HomepageController::class, 'index'])->name('homepage.index');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us',[HomepageController::class, 'aboutus'])->name('homepage.aboutus');
 Route::get('/contact-us',[HomepageController::class, 'contactus'])->name('homepage.contactus');
 

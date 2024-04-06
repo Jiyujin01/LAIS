@@ -16,16 +16,43 @@
      <!-- Dark theme CSS -->
      <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css" rel="stylesheet">
 
+     <style>
+    body.app {
+        background-attachment: scroll, scroll, scroll, fixed;
+		background-color: #63693A;
+		background-image: url("assets/css/images/light-bl.svg"), url("assets/css/images/light-br.svg"), url("assets/css/images/overlay.png"), url("../../images/banner.jpg");
+		background-position: bottom left, bottom right, top left, top center;
+		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+		background-size: 25em, 25em, auto, cover;
+		color: #fff;
+		cursor: default;
+    }
+    #try{
+			-moz-animation: reveal-banner 1s 0.25s ease-in-out;
+			-webkit-animation: reveal-banner 1s 0.25s ease-in-out;
+			-ms-animation: reveal-banner 1s 0.25s ease-in-out;
+			animation: reveal-banner 1s 0.25s ease-in-out;
+			-moz-animation-fill-mode: forwards;
+			-webkit-animation-fill-mode: forwards;
+			-ms-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+			color: #fff;
+			opacity: 0.8;
+		}
+
+    </style>
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="bg-dark">
+<body class="app">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'LAMS') }}
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/') }}/img/sanhs_logo.png" width="40" alt="Logo Image">
+                    {{ config('app.name', 'LAIS') }}
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,7 +60,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->

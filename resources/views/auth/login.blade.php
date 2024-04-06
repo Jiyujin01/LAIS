@@ -1,11 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+        .card-body
+            {
+			-moz-animation: reveal-banner 1s 0.25s ease-in-out;
+			-webkit-animation: reveal-banner 1s 0.25s ease-in-out;
+			-ms-animation: reveal-banner 1s 0.25s ease-in-out;
+			animation: reveal-banner 1s 0.25s ease-in-out;
+			-moz-animation-fill-mode: forwards;
+			-webkit-animation-fill-mode: forwards;
+			-ms-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+			background: rgba(27, 52, 46, 0.5);
+			display: inline-block;
+		}
+
+        
+        </style>
+<section id= "try">
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8" >
             <div class="card bg-dark text-white">
-                <div class="card-header">{{ __('Login') }}</div> 
+                <div class="card-header"> <h5 id="logo" style="display: flex; align-items: center;">
+				 <span style=" margin-left: 5px;"> {{ __('Login') }} </span> </h5></div> 
 
                 <div class="card-body">
                 
@@ -81,4 +101,9 @@
         </div>
     </div>
 </div>
+    </section>
 @endsection
+
+@section('css')
+    
+@stop

@@ -32,7 +32,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:4|max:255|unique:courses',
+            'name' => 'required|min:2|max:255|unique:courses',
             'user_id' => 'required|int',
             'level' => 'required',
             'School_year' => 'required'
