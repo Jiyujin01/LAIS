@@ -4,9 +4,8 @@
 
 @section('content_header')
 <div class="row">
-    <div class="col-sm-4"><h1>Classes</h1></div>
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4"><div class="float-right" id="live-clock"></div></div>
+    <div class="col-sm-6"><h1>Classes</h1></div>
+    <div class="col-sm-6"><div class="float-right" id="live-clock"></div></div>
 </div>
 @stop
 

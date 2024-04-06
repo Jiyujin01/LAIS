@@ -6,7 +6,8 @@ use App\Models\Classes as StudentClass;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
-use App\Models\Class;
+use App\Models\Course;
+use App\Models\Level;
 class StudentsController extends Controller
 {
     public function __construct()
@@ -16,23 +17,26 @@ class StudentsController extends Controller
 
     public function index()
     {
-        $student = Student::all();
+        $students = Student::paginate(10);
 
-        return view('app.admin.students.index', compact('student'));
+        return view('app.admin.students.index', compact('students'));
     }
 
     public function create()
     {
-        return view('app.admin.students.create');
+        $courses = Course::all();
+        return view('app.admin.students.create', compact('courses'));
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'course_id' => 'required|min:4|max:255',
+            'course_id' =>  'required',
             'fname' => 'required|min:2|max:255',
+            'mname' => 'required|min:2|max:255',
             'lname' => 'required|min:2|max:255',
-            'gender' => 'required|in:Male,Female,Other'
+            'suffix' => 'required|min:1|max:255',
+            'gender' => 'required|in:Male,Female,Other' 
         ]);
 
         $student = Student::create($data);
@@ -55,9 +59,11 @@ class StudentsController extends Controller
     public function update(Request $request, Student $student)
     {
         $data = $request->validate([
-            'class' => 'required|min:4|max:255',
+            'course_id' => 'required',
             'fname' => 'required|min:2|max:255',
+            'mname' => 'required|min:2|max:255',
             'lname' => 'required|min:2|max:255',
+            'suffix' => 'required|min:1|max:255',
             'gender' => 'required|in:Male,Female,Other'
         ]);
 
@@ -65,4 +71,5 @@ class StudentsController extends Controller
 
         return redirect()->route('app.admin.students.index')->with('status', 'Student has been successfully updated!');
     }
+
 }

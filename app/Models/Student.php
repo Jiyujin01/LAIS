@@ -28,7 +28,7 @@ class Student extends Model
 
     public function getFullname()
     {
-        return $this->fname . ' ' . $this->lname;
+        return $this->fname . ' ' . $this->mname . ' ' . $this->lname;
     }
 
     public function checkinout(): HasMany

@@ -13,21 +13,12 @@
         <form action="{{ route('app.admin.students.store') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="level">Level:</label>
-                <select name="level" id="level" class="form-control" required>
-                    <option value="">Select Level</option>
-                    <option value="12">12</option>
-                    <option value="11">11</option>
-                    <option value="10">10</option>
-                    <option value="9">9</option>
-                    <option value="8">8</option>
-                    <option value="7">7</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="class">Class:</label>
-                <select name="class" id="class" class="form-control" required>
+                <label for="course_id">Class:</label>
+                <select name="course_id" id="course_id" class="form-control" required>
                     <option value="">Select Class</option>
+                    @foreach($courses as $course)
+                        <option value="{{ $course->id }}">{{ $course->level }}-{{ $course->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">
@@ -37,6 +28,14 @@
             <div class="form-group">
                 <label for="lname">Last Name:</label>
                 <input type="text" name="lname" id="lname" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="mname">Middle Name:</label>
+                <input type="text" name="mname" id="mname" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="suffix">Suffix:</label>
+                <input type="text" name="suffix" id="suffix" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
@@ -65,25 +64,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('#level').change(function(){
-            var level = $(this).val();
-            var options = '';
-            if(level == '12') {
-                options = '<option value="1">ICT</option>' +
-                          '<option value="2">HUMMS1</option>' +
-                          '<option value="3">HUMMS2</option>' +
-                          '<option value="4">HUMMS3</option>' +
-                          '<option value="5">HUMMS4</option>' +
-                          '<option value="6">STEM</option>' +
-                          '<option value="7">HE1</option>' +
-                          '<option value="8">HE2</option>' +
-                          '<option value="9">ABM</option>';
-            } else if(level == '11') {
-                // Add options for level 11
-            }
-            // Add other level cases as needed
-            $('#class').html(options);
-        });
+        // Your JavaScript logic here, if any
     });
 </script>
 @stop

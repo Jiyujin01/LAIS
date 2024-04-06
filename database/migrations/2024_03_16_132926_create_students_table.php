@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->string('fname');
+            $table->string('mname');
             $table->string('lname');
             $table->string('suffix')->nullable();
             $table->string('gender');

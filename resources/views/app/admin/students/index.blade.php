@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Students')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Students</h1>
 @stop
 
 @section('content')
@@ -21,32 +21,47 @@
             </div>
         </div>
 
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>  
                         <th>ID</th>
                         <th>Class</th> <!-- New column for Class -->
                         <th>First Name</th>
+                        <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>Gender</th>
+                        <th>Suffix</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($student as $students)
+                    @foreach($students as $student)
                     <tr>
-                        <td>{{ $students->id }}</td>
-                        <td>{{ $students->course->name}}</td> 
-                        <td>{{ $students->fname }}</td>
-                        <td>{{ $students->lname }}</td>                     
-                        <td>{{ $students->gender }}</td>
+                        <td>{{ $student->id }}</td>
+                        <td>{{ $student->course->name}}</td> 
+                        <td>{{ $student->fname }}</td>
+                        <td>{{ $student->mname }}</td>
+                        <td>{{ $student->lname }}</td>                     
+                        <td>{{ $student->gender }}</td>
+                        <td>{{ $student->suffix }}</td>
                         <td>
+                            <!-- Add actions here -->
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
+
+        <div class="card-footer clearfix">
+            <ul class="pagination pagination-sm m-0 float-right">
+                <li class="page-item"><a class="page-link" href="{{ $students->previousPageUrl() }}">&laquo;</a></li>
+                @foreach ($students->getUrlRange(1, $students->lastPage()) as $page => $url)
+                    <li class="page-item {{ ($students->currentPage() == $page) ? 'active' : '' }}"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                @endforeach
+                <li class="page-item"><a class="page-link" href="{{ $students->nextPageUrl() }}">&raquo;</a></li>
+            </ul>
         </div>
     </div>
 @stop
@@ -57,6 +72,12 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        /* Custom CSS for mobile responsiveness */
+        .table-responsive {
+            overflow-x: auto;
+        }
+    </style>
 @stop
 
 @section('js')
