@@ -20,6 +20,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'first_name',
+        'last_name',
+        'middle_name',
+        'suffix',
+        'gender',
         'email',
         'password',
     ];
@@ -57,5 +62,12 @@ class User extends Authenticatable
     {
         return $this->name;
     }
+
+    public function getfullname()
+    {
+        $middleInitial = !empty($this->middle_name) ? substr($this->middle_name, 0, 1) . '.' : '';
+        return $this->last_name . ',' . $this->first_name . ',' . $middleInitial . ',' . $this->suffix;
+    }
+
 
 }

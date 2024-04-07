@@ -29,6 +29,11 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:8',
+            'fist_name' => 'min:2',
+            'last_name' => 'min:2',
+            'middle_name' => 'min:2',
+            'suffix' => 'min:1',
+            'gender' => 'min:2',
             'email' => 'required|email|unique:users',
             'level' => 'required',
             'password' => 'required',
@@ -38,6 +43,11 @@ class UserController extends Controller
 
         $newUser = User::create([
             'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'middle_name' => $data['middle_name'],
+            'suffix' => $data['suffix'],
+            'gender' => $data['gender'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -60,6 +70,11 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:8',
+            'fist_name' => 'required|min:2',
+            'last_name' => 'required|min:2',
+            'middle_name' => 'required|min:2',
+            'suffix' => 'required|min:1',
+            'gender' => 'required|in:MALE,FEMALE,Other',
             'level' => 'required',
             'status' => 'required',
         ]);

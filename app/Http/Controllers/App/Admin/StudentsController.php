@@ -36,7 +36,7 @@ class StudentsController extends Controller
             'mname' => 'required|min:2|max:255',
             'lname' => 'required|min:2|max:255',
             'suffix' => 'required|min:1|max:255',
-            'gender' => 'required|in:Male,Female,Other' 
+            'gender' => 'required|in:MALE,FEMALE,Other' 
         ]);
 
         $student = Student::create($data);
@@ -64,7 +64,7 @@ class StudentsController extends Controller
             'mname' => 'required|min:2|max:255',
             'lname' => 'required|min:2|max:255',
             'suffix' => 'required|min:1|max:255',
-            'gender' => 'required|in:Male,Female,Other'
+            'gender' => 'required|in:MALE,FEMALE,Other'
         ]);
 
         $student->update($data);

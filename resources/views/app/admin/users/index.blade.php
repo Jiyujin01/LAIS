@@ -26,6 +26,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>User Name</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->getfullname() }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role->getLevel() }}</td>
                                 <td>
@@ -56,7 +58,13 @@
                 </table>
             </div>
             <div class="card-footer clearfix">
-                {{ $users->links() }} <!-- Pagination links -->
+                <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="{{ $users->previousPageUrl() }}">&laquo;</a></li>
+                    @foreach ($users->getUrlRange(1, $users->lastPage()) as $page => $url)
+                        <li class="page-item {{ ($users->currentPage() == $page) ? 'active' : '' }}"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                    @endforeach
+                    <li class="page-item"><a class="page-link" href="{{ $users->nextPageUrl() }}">&raquo;</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -72,4 +80,5 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    
 @stop
