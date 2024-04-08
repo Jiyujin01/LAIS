@@ -28,7 +28,8 @@ class Student extends Model
 
     public function getFullname()
     {
-        return $this->fname . ' ' . $this->mname . ' ' . $this->lname;
+        $middleInitial = !empty($this->mname) ? substr($this->mname, 0, 1) . '.' : '';
+        return $this->lname . ',' . $this->fname . ',' . $middleInitial . ',' . $this->suffix;
     }
 
     public function checkinout(): HasMany

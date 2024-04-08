@@ -72,7 +72,7 @@
 			<table width="100%" border="0">
 							<tr height="25">
 					<td width="15%" align="right" ><font size="1">Level / Section &nbsp;</td>
-					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> {{ $students->first()->course->name }} </td>
+					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"> {{ $students->first()->course->level }}-{{ $students->first()->course->name }} </td>
 					<td width="3%"></td>
 					<td></td>
 					<td width="15%" align="right"><font size="1">School Year &nbsp;</td>
@@ -151,9 +151,11 @@
 		<th>PRESENT</th>
 		<th>TARDY</th>
 	</tr>
-	@foreach($students->where('gender', 'Male') as $student)
+	@php $s = 19; @endphp
 	@php $i = 1; @endphp
+	@foreach($students->where('gender', 'MALE') as $student)
 	<tr height="25">
+	@php $d = 0; @endphp
 		<td align="right"><strong>{{ $loop->iteration }}</strong></td>
 		<td align="center">
 
@@ -178,15 +180,19 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
+			@php $d++; @endphp
 		@endif
 		</td>
 		<td style="text-align: center;">
@@ -209,16 +215,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-03'; // Change this to your specific date
@@ -239,16 +249,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-04'; // Change this to your specific date
@@ -269,16 +283,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-05'; // Change this to your specific date
@@ -299,17 +317,22 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
+			<!--
 			@php
 				$specificDate = '2024-04-08'; // Change this to your specific date
 				$latestCheckinout = null;
@@ -338,8 +361,11 @@
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			
+		@endif -->
+	</td>
 			<td style="text-align: center;">
+			<!--
 			@php
 				$specificDate = '2024-04-09'; // Change this to your specific date
 				$latestCheckinout = null;
@@ -368,8 +394,10 @@
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+		@endif -->
+	</td>
 			<td style="text-align: center;">
+			<!--
 			@php
 				$specificDate = '2024-04-10'; // Change this to your specific date
 				$latestCheckinout = null;
@@ -398,7 +426,8 @@
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+		@endif -->
+	</td>
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-11'; // Change this to your specific date
@@ -419,16 +448,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-12'; // Change this to your specific date
@@ -449,16 +482,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-15'; // Change this to your specific date
@@ -479,16 +516,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-16'; // Change this to your specific date
@@ -509,16 +550,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-17'; // Change this to your specific date
@@ -539,16 +584,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-18'; // Change this to your specific date
@@ -569,16 +618,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-19'; // Change this to your specific date
@@ -599,16 +652,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-22'; // Change this to your specific date
@@ -629,16 +686,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-23'; // Change this to your specific date
@@ -659,16 +720,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-24'; // Change this to your specific date
@@ -689,16 +754,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-25'; // Change this to your specific date
@@ -719,16 +788,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-26'; // Change this to your specific date
@@ -749,16 +822,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-29'; // Change this to your specific date
@@ -779,16 +856,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-30'; // Change this to your specific date
@@ -809,26 +890,31 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
+		<td>{{$s-$d}}</td>
+		<td>{{$d}}</td>
+		@php $m = $i; @endphp
 		@php $i++; @endphp
 		@endforeach
 	</tr>
 		<tr height="25">
-		<td align="right"><strong>0</strong></td>
+		<td align="right"><strong><?php echo $m; ?></strong></td>
 		<td align="center"><strong><=== MALE | TOTAL Per Day ===></strong></td>
 		<td><strong></strong></td>
 		<td></td>
@@ -858,9 +944,12 @@
 		<td></td>
 		<td></td>
 	</tr>
-	@foreach($students->where('gender', 'Female') as $student)
+	@php $s = 19; @endphp
+	@php $i = 1; @endphp
+	@foreach($students->where('gender', 'FEMALE') as $student)
 	<tr height="25">
-		<td align="right"><strong>0</strong></td>
+	@php $d = 0; @endphp
+		<td align="right"><strong>{{ $loop->iteration }}</strong></td>
 		<td  align="center"><strong><strong>{{ $student->getFullname() }}</strong></strong></td>
 		<td style="text-align: center;">
 			@php
@@ -882,16 +971,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 		<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-02'; // Change this to your specific date
@@ -912,16 +1005,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-03'; // Change this to your specific date
@@ -942,16 +1039,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-04'; // Change this to your specific date
@@ -972,16 +1073,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-05'; // Change this to your specific date
@@ -1002,17 +1107,22 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
+			<!--
 			@php
 				$specificDate = '2024-04-08'; // Change this to your specific date
 				$latestCheckinout = null;
@@ -1041,8 +1151,10 @@
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+		@endif -->
+	</td>
 			<td style="text-align: center;">
+			<!--
 			@php
 				$specificDate = '2024-04-09'; // Change this to your specific date
 				$latestCheckinout = null;
@@ -1071,8 +1183,10 @@
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+		@endif -->
+	</td>
 			<td style="text-align: center;">
+			<!--
 			@php
 				$specificDate = '2024-04-10'; // Change this to your specific date
 				$latestCheckinout = null;
@@ -1101,7 +1215,8 @@
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+		@endif -->
+	</td>
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-11'; // Change this to your specific date
@@ -1122,16 +1237,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-12'; // Change this to your specific date
@@ -1152,16 +1271,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-15'; // Change this to your specific date
@@ -1182,16 +1305,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-16'; // Change this to your specific date
@@ -1212,16 +1339,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-17'; // Change this to your specific date
@@ -1242,16 +1373,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-18'; // Change this to your specific date
@@ -1272,16 +1407,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-19'; // Change this to your specific date
@@ -1302,16 +1441,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-22'; // Change this to your specific date
@@ -1332,16 +1475,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-23'; // Change this to your specific date
@@ -1362,16 +1509,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-24'; // Change this to your specific date
@@ -1392,16 +1543,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-25'; // Change this to your specific date
@@ -1422,16 +1577,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-26'; // Change this to your specific date
@@ -1452,16 +1611,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-29'; // Change this to your specific date
@@ -1482,16 +1645,20 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 			<td style="text-align: center;">
 			@php
 				$specificDate = '2024-04-30'; // Change this to your specific date
@@ -1512,25 +1679,31 @@
 			<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == 1)
 				<span class="triangle triangle-halfdown"></span>
+				@php $d = $d + 0.5; @endphp
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
 				<span class="triangle triangle-full"></span>
+				@php $d++; @endphp
 			@else
 				<span class="triangle triangle-halfup"></span>
+				@php $d = $d + 0.5; @endphp
 			@endif
 		@else
 			<span class="triangle triangle-full"></span>
-		@endif</td>
+			@php $d++; @endphp
+		@endif
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
+		<td>{{$s-$d}}</td>
+		<td>{{$d}}</td>
+		@php $f = $i; @endphp
+		@php $i++; @endphp
 	</tr>
 	@endforeach
 		<tr height="25">
-		<td align="right"><strong>0</strong></td>
+		<td align="right"><strong><?php echo $f; ?></strong></td>
 		<td align="center"><strong><=== FEMALE | TOTAL Per Day ===></strong></td>
 		<td></td>
 		<td></td>
