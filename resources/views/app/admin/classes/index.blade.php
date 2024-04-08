@@ -26,6 +26,20 @@
         </div>
 
         <div class="card-body">
+            <!-- Search form -->
+            <form action="{{ route('app.admin.classes.index') }}" method="GET" class="mb-3">
+                <div class="form-group">
+                    <label for="level">Filter by Level:</label>
+                    <select name="level" id="level" class="form-control">
+                        <option value="">All Levels</option>
+                        @foreach($levels as $level)
+                            <option value="{{ $level }}" {{ request()->input('level') == $level ? 'selected' : '' }}>{{ $level }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
+
             <div class="row">
                 @foreach($courses as $course)
                     <?php 

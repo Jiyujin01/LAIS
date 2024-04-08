@@ -15,11 +15,20 @@ class CourseController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::all();
+        $levels = Course::distinct()->pluck('level');
 
-        return view('app.admin.classes.index', compact('courses'));
+    $coursesQuery = Course::query();
+
+    if ($request->has('level')) {
+        $level = $request->input('level');
+        $coursesQuery->where('level', $level);
+    }
+
+    $courses = $coursesQuery->get();
+
+        return view('app.admin.classes.index', compact('courses', 'levels'));
     }
 
 
