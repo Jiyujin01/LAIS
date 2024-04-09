@@ -297,13 +297,14 @@ return [
             'icon'        => 'nav-icon fas fa-tachometer-alt',
             'label_color' => 'success',
         ],
-
+ /*
         [
             'text'        => 'Upcoming Events',
             'url'         => '/app/admin/events',
             'icon'        => 'nav-icon far fa-calendar',
             'label_color' => 'success',
         ],
+        */
         ['header' => 'Teacher Dashboard'],
         [
             'text'        => 'Manage Classes',
