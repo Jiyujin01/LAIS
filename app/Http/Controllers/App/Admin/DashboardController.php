@@ -27,7 +27,7 @@ class DashboardController extends Controller
     public function index()
 
     {
-        $students = Student::paginate(10);
+        $students = Student::paginate(45);
         return view('app.admin.dashbord.index', compact('students'));
     }
 
