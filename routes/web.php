@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\App\Admin\UserController as AdminUser;
 use App\Http\Controllers\App\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\App\Admin\AdminAuthController as AuthController;
 use App\Http\Controllers\App\Admin\StudentsController as StudentController;
 use App\Http\Controllers\HomepageController as HomepageController;
 use App\Http\Controllers\App\Admin\EventController as EventController;
@@ -49,8 +50,8 @@ Route::middleware(['auth', 'active'])->group(function () {
     Route::patch('/app/admin/users/{user}', [AdminUser::class, 'resetOk'])->name('app.admin.users.resetOk')
     ->middleware('admin');
 
-    Route::get('/admin/auth', [App\Http\Controllers\AdminAuthController::class, 'index'])->name('admin.auth.index');
-    Route::put('/admin/auth', [App\Http\Controllers\AdminAuthController::class, 'changePassword'])->name('admin.auth.changePassword');
+    Route::get('/admin/auth', [AuthController::class, 'index'])->name('app.admin.auth.index');
+    Route::put('/admin/auth', [AuthController::class, 'changePassword'])->name('app.admin.auth.changePassword');
 
     Route::get('/app/admin/events', [EventController::class, 'index'])->name('app.admin.events.index');
     Route::get('/app/admin/events/create', [EventController::class, 'create'])->name('app.admin.events.create')
