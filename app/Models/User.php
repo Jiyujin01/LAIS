@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Course;
 
 class User extends Authenticatable
 {
@@ -48,10 +49,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function course()
+    {
+        return $this->hasMany(Course::class);
+    }
     public function role(): HasOne
     {
         return $this->hasOne(Role::class);
     }
+
 
     public function user(): HasOne
     {
