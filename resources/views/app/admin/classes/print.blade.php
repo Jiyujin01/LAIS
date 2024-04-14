@@ -164,8 +164,11 @@
 			@php
 				$specificDate = '2024-04-01'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -199,8 +202,11 @@
 			@php
 				$specificDate = '2024-04-02'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -233,8 +239,11 @@
 			@php
 				$specificDate = '2024-04-03'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -267,8 +276,11 @@
 			@php
 				$specificDate = '2024-04-04'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -301,8 +313,11 @@
 			@php
 				$specificDate = '2024-04-05'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -336,8 +351,11 @@
 			@php
 				$specificDate = '2024-04-08'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -369,8 +387,11 @@
 			@php
 				$specificDate = '2024-04-09'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -401,8 +422,11 @@
 			@php
 				$specificDate = '2024-04-10'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -432,8 +456,11 @@
 			@php
 				$specificDate = '2024-04-11'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -466,8 +493,11 @@
 			@php
 				$specificDate = '2024-04-12'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -500,8 +530,11 @@
 			@php
 				$specificDate = '2024-04-15'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -534,8 +567,11 @@
 			@php
 				$specificDate = '2024-04-16'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -568,8 +604,11 @@
 			@php
 				$specificDate = '2024-04-17'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -602,8 +641,11 @@
 			@php
 				$specificDate = '2024-04-18'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -636,8 +678,11 @@
 			@php
 				$specificDate = '2024-04-19'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -670,8 +715,11 @@
 			@php
 				$specificDate = '2024-04-22'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -704,8 +752,11 @@
 			@php
 				$specificDate = '2024-04-23'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -738,8 +789,11 @@
 			@php
 				$specificDate = '2024-04-24'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -772,8 +826,11 @@
 			@php
 				$specificDate = '2024-04-25'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -806,8 +863,11 @@
 			@php
 				$specificDate = '2024-04-26'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -840,8 +900,11 @@
 			@php
 				$specificDate = '2024-04-29'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -874,8 +937,11 @@
 			@php
 				$specificDate = '2024-04-30'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -955,8 +1021,11 @@
 			@php
 				$specificDate = '2024-04-01'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -989,8 +1058,11 @@
 			@php
 				$specificDate = '2024-04-02'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1023,8 +1095,11 @@
 			@php
 				$specificDate = '2024-04-03'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1057,8 +1132,11 @@
 			@php
 				$specificDate = '2024-04-04'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1091,8 +1169,11 @@
 			@php
 				$specificDate = '2024-04-05'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1126,8 +1207,11 @@
 			@php
 				$specificDate = '2024-04-08'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1158,8 +1242,11 @@
 			@php
 				$specificDate = '2024-04-09'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1190,8 +1277,11 @@
 			@php
 				$specificDate = '2024-04-10'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1221,8 +1311,11 @@
 			@php
 				$specificDate = '2024-04-11'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1255,8 +1348,11 @@
 			@php
 				$specificDate = '2024-04-12'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1289,8 +1385,11 @@
 			@php
 				$specificDate = '2024-04-15'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1323,8 +1422,11 @@
 			@php
 				$specificDate = '2024-04-16'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1357,8 +1459,11 @@
 			@php
 				$specificDate = '2024-04-17'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1391,8 +1496,11 @@
 			@php
 				$specificDate = '2024-04-18'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1425,8 +1533,11 @@
 			@php
 				$specificDate = '2024-04-19'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1459,8 +1570,11 @@
 			@php
 				$specificDate = '2024-04-22'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1493,8 +1607,11 @@
 			@php
 				$specificDate = '2024-04-23'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1527,8 +1644,11 @@
 			@php
 				$specificDate = '2024-04-24'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1561,8 +1681,11 @@
 			@php
 				$specificDate = '2024-04-25'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1595,8 +1718,11 @@
 			@php
 				$specificDate = '2024-04-26'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1629,8 +1755,11 @@
 			@php
 				$specificDate = '2024-04-29'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
@@ -1663,8 +1792,11 @@
 			@php
 				$specificDate = '2024-04-30'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
+					$createdTime = substr($checkinout->created_at, 11);
+					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
 						break; // Break the loop after finding the most recent data for the specific date
