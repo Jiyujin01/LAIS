@@ -164,7 +164,10 @@
 			@php
 				$specificDate = '2024-04-01'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -174,16 +177,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 		@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -202,7 +224,10 @@
 			@php
 				$specificDate = '2024-04-02'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -212,16 +237,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -239,7 +283,10 @@
 			@php
 				$specificDate = '2024-04-03'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -249,16 +296,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -276,7 +342,10 @@
 			@php
 				$specificDate = '2024-04-04'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -286,16 +355,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -313,7 +401,10 @@
 			@php
 				$specificDate = '2024-04-05'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -323,16 +414,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -351,13 +461,26 @@
 			@php
 				$specificDate = '2024-04-08'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
 					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
@@ -387,13 +510,26 @@
 			@php
 				$specificDate = '2024-04-09'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
 					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
@@ -422,13 +558,26 @@
 			@php
 				$specificDate = '2024-04-10'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
 					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
@@ -456,7 +605,10 @@
 			@php
 				$specificDate = '2024-04-11'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -466,16 +618,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -493,7 +664,10 @@
 			@php
 				$specificDate = '2024-04-12'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -503,16 +677,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -530,7 +723,10 @@
 			@php
 				$specificDate = '2024-04-15'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -540,16 +736,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -567,7 +782,10 @@
 			@php
 				$specificDate = '2024-04-16'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -577,16 +795,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -604,7 +841,10 @@
 			@php
 				$specificDate = '2024-04-17'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -614,16 +854,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -641,7 +900,10 @@
 			@php
 				$specificDate = '2024-04-18'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -651,16 +913,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -678,7 +959,10 @@
 			@php
 				$specificDate = '2024-04-19'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -688,16 +972,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -715,7 +1018,10 @@
 			@php
 				$specificDate = '2024-04-22'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -725,16 +1031,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -752,7 +1077,10 @@
 			@php
 				$specificDate = '2024-04-23'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -762,16 +1090,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -789,7 +1136,10 @@
 			@php
 				$specificDate = '2024-04-24'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -799,16 +1149,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -826,7 +1195,10 @@
 			@php
 				$specificDate = '2024-04-25'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -836,16 +1208,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -863,7 +1254,10 @@
 			@php
 				$specificDate = '2024-04-26'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -873,16 +1267,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -900,7 +1313,10 @@
 			@php
 				$specificDate = '2024-04-29'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -910,16 +1326,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -937,7 +1372,10 @@
 			@php
 				$specificDate = '2024-04-30'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -947,16 +1385,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1021,7 +1478,10 @@
 			@php
 				$specificDate = '2024-04-01'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1031,16 +1491,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1058,7 +1537,10 @@
 			@php
 				$specificDate = '2024-04-02'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1068,16 +1550,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1095,7 +1596,10 @@
 			@php
 				$specificDate = '2024-04-03'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1105,16 +1609,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1132,7 +1655,10 @@
 			@php
 				$specificDate = '2024-04-04'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1142,16 +1668,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1169,7 +1714,10 @@
 			@php
 				$specificDate = '2024-04-05'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1179,16 +1727,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1207,13 +1774,26 @@
 			@php
 				$specificDate = '2024-04-08'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
 					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
@@ -1242,13 +1822,26 @@
 			@php
 				$specificDate = '2024-04-09'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
 					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
@@ -1277,13 +1870,26 @@
 			@php
 				$specificDate = '2024-04-10'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
 					$createdTime = intval(str_replace(":", "", $createdTime));
 					if($createdAtDate === $specificDate) {
 						$latestCheckinout = $checkinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
@@ -1311,7 +1917,10 @@
 			@php
 				$specificDate = '2024-04-11'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1321,16 +1930,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1348,7 +1976,10 @@
 			@php
 				$specificDate = '2024-04-12'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1358,16 +1989,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1385,7 +2035,10 @@
 			@php
 				$specificDate = '2024-04-15'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1395,16 +2048,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1422,7 +2094,10 @@
 			@php
 				$specificDate = '2024-04-16'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1432,16 +2107,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1459,7 +2153,10 @@
 			@php
 				$specificDate = '2024-04-17'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1469,16 +2166,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1496,7 +2212,10 @@
 			@php
 				$specificDate = '2024-04-18'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1506,16 +2225,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1533,7 +2271,10 @@
 			@php
 				$specificDate = '2024-04-19'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1543,16 +2284,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1570,7 +2330,10 @@
 			@php
 				$specificDate = '2024-04-22'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1580,16 +2343,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1607,7 +2389,10 @@
 			@php
 				$specificDate = '2024-04-23'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1617,16 +2402,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1644,7 +2448,10 @@
 			@php
 				$specificDate = '2024-04-24'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1654,16 +2461,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1681,7 +2507,10 @@
 			@php
 				$specificDate = '2024-04-25'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1691,16 +2520,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1718,7 +2566,10 @@
 			@php
 				$specificDate = '2024-04-26'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1728,16 +2579,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1755,7 +2625,10 @@
 			@php
 				$specificDate = '2024-04-29'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1765,16 +2638,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
@@ -1792,7 +2684,10 @@
 			@php
 				$specificDate = '2024-04-30'; // Change this to your specific date
 				$latestCheckinout = null;
+				$createdAtDate = null;
 				$createdTime = null;
+				$updatedCheckinout = null;
+				$updatedTime = null;
 				foreach($student->checkinout->sortByDesc('created_at') as $checkinout) {
 					$createdAtDate = substr($checkinout->created_at, 0, 10);
 					$createdTime = substr($checkinout->created_at, 11);
@@ -1802,16 +2697,35 @@
 						break; // Break the loop after finding the most recent data for the specific date
 					}
 				}
+
+				foreach($student->checkinout->sortByDesc('updated_at') as $updatedcheckinout) {
+					$updatedAtDate = substr($updatedcheckinout->updated_at, 0, 10);
+					$updatedTime = substr($updatedcheckinout->updated_at, 11);
+					$updatedTime = intval(str_replace(":", "", $updatedTime));
+					if($updatedAtDate === $specificDate && $updatedcheckinout->updated_at !== null && $updatedcheckinout->updated_at !== "") {
+						$UpdatedCheckinout = $updatedcheckinout;
+						break; // Break the loop after finding the most recent data for the specific date
+					}
+				}
 			@endphp
 
 			@if($latestCheckinout)
 			@if($latestCheckinout->created_at === null || $latestCheckinout->created_at === "")
 				<span class="triangle triangle-full">
 			@elseif($latestCheckinout->Getstate() == null || $latestCheckinout->Getstate() == "")
-			<span class="triangle triangle-full">
-			@elseif($latestCheckinout->Getstate() == 1)
-				<span class="triangle triangle-halfdown"></span>
-				@php $d = $d + 0.5; @endphp
+				<span class="triangle triangle-full">
+			@elseif ($latestCheckinout->Getstate() == 1) // Checking state of latestCheckinout
+				@if (!is_null($createdTime)) // Checking if createdTime is not null
+					@if ($createdTime > 074600) // Checking if createdTime is greater than 07:46:00
+						<span class="triangle triangle-halfdown"></span>
+						@php $d = $d + 0.5; @endphp // Incrementing $d by 0.5
+					@else
+						// Placeholder for else condition
+					@endif
+				@else
+					<span class="triangle triangle-full"></span>
+					@php $d++; @endphp
+				@endif
 			@elseif($latestCheckinout->Getstate() == 0)
 				<span class="triangle triangle-no"></span>
 			@elseif($latestCheckinout->Getstate() == 2)
